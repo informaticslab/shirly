@@ -1,0 +1,147 @@
+# image_map.txt - This file describes how image links found in the EPUB file are to be mapped
+# 				into the app. Each line has this format:
+#				
+#		"Image file path in quotes",MAP_OPTION
+#		
+#		The MAP_OPTION can be one of three options:
+#
+#			rem - this means that the image link should be removed
+#					Example:	"../Images/cervicitis-rec.png",rem
+#
+#	        use - this means that the image link should be used as is
+#					Example:	"../Images/cervicitis-rec.png",use
+#
+#			a-b-c where a-b-c is a table or comma separated list of tables that should replace
+#				  the image link. Tables should be specified in the doc, doc-page, doc-column, doc-table number 
+#				  format that is found in the table-data.txt metadata file.
+#					Example:	"../Images/cervicitis-rec.png",1-52-1-1,1-52-1-2
+
+# image links in ./cervicitis.xhtml
+"../Images/cervicitis-rec.png",1-44-1-1
+
+# image links in ./chancroid.xhtml
+"../Images/chancroid-rec.png",1-19-2-1
+
+# image links in ./chlamydial-infections.xhtml
+"../Images/CT-tx-for-adults.png",1-45-2-1,1-45-2-2
+"../Images/CT-preg-rec.png",1-47-1-1,1-47-1-2
+"../Images/CT-infant-rec.png",1-48-1-1
+"../Images/CT-infant-pneum-rec.png",1-48-2-1
+"../Images/CT-child-rec.png",1-49-1-1,1-49-1-2,1-49-1-3
+
+# image links in ./clinical-prevention-guidance.xhtml
+"../Images/box-1.png",use
+
+# image links in ./congenital-syphilis.xhtml
+"../Images/con-syph-rec-reg-1.png",1-37-1-1
+"../Images/cong-syph-rec-reg-2.png",1-37-2-1
+"../Images/cong-syph-rec-reg-3.png",1-37-2-2
+"../Images/cong-syp-rec-reg-4.png",1-37-2-3
+"../Images/older-children-cong-syph-rec.png",1-38-1-1
+
+# image links in ./dis-char-by-ureth-and-cerv.xhtml
+"../Images/table-1.png",use
+
+# image links in ./dis-chara-vag-discharge.xhtml
+"../Images/BV-treatment.jpg",1-57-1-1
+"../Images/BV-alt-regimen.jpg",1-57-2-1
+"../Images/bv-preg.png",1-58-1-1
+"../Images/tric-treatment.png",1-59-2-1,1-59-2-2
+"../Images/vulvo-vag-cand-treat.png",1-61-1-2
+"../Images/class-of-vvc.png",rem
+
+# image links in ./ectoparasitic-infections.xhtml
+"../Images/pediculosis-pubis.png",1-88-2-1,1-88-2-2
+"../Images/scabies.png",1-89-2-1,1-89-2-2
+
+# image links in ./epididymitis.xhtml
+"../Images/epididy-treat.png",1-68-2-1
+
+# image links in ./genital-HSV-infections.xhtml
+"../Images/genital-HSV-rec.png",1-21-2-1
+"../Images/supp-ther-rec.png",1-22-1-1
+"../Images/episodic-1.png",1-22-1-2
+"../Images/episodic-2.png",rem
+"../Images/rec-reg-HSV-HIV.png",1-23-2-1
+"../Images/rec-reg-HSV-HIV-2.png",1-24-1-1
+
+# image links in ./genital-warts.xhtml
+"../Images/gen-warts-treatment.png",1-71-1-1
+"../Images/treat-warts-2.png",1-72-2-1,1-72-2-2,1-72-2-3,1-72-2-4
+
+# image links in ./gonococcal-infections-adol-adult.xhtml
+"../Images/unc-gon-inf-cer-urt-rec.jpg",1-50-2-1
+"../Images/uncomp-gon-inf-phar.jpg",1-51-2-1
+"../Images/gon-conjuctivitis.jpg",1-53-1-1
+"../Images/DGI.jpg",1-53-1-2,1-53-1-3
+"../Images/gon-men-end.jpg",1-53-2-1
+
+# image links in ./gonococcal-infections-children.xhtml
+"../Images/gonococc-children.png",1-55-1-1,1-55-1-2,1-55-1-3,1-55-1-4
+"../Images/ophth-neo-prophylaxis.png",1-55-2-1
+
+# image links in ./gonococcal-infections-infants.xhtml
+"../Images/Ophthalmia-Neonatorum.png",1-54-1-1
+"../Images/newborn-scalp.png",1-54-2-1
+"../Images/infant-prophy.png",1-54-2-2
+
+# image links in ./granuloma-inguinale.xhtml
+"../Images/rec-reg-gran-ing.png",1-25-2-1,1-25-2-2
+
+# image links in ./introduction.xhtml
+"../Images/corres-auth.png",use
+
+# image links in ./latent syphilis.xhtml
+"../Images/latent-syph-adult-rec.png",1-30-2-1
+"../Images/latent-syph-child-rec.png",1-31-1-1
+
+# image links in ./lymphogranuloma-venereum.xhtml
+"../Images/rec-reg-lymphgran.png",1-26-2-1,1-26-2-2
+
+# image links in ./man-of-ppl-allergic-to-penicillin.xhtml
+"../Images/box-2.png",use
+
+# image links in ./MMWR-disclaimer.xhtml
+"../Images/MMWR-disclaimer.png",rem
+
+# image links in ./neurosyphilis.xhtml
+"../Images/neurosyph-reg.png",1-32-2-1
+"../Images/neurosyph-alt-reg.png",1-32-2-2
+
+# image links in ./nongonococcal-urethritis.xhtml
+"../Images/nongono-rec-reg.png",1-42-1-1,1-42-1-2
+"../Images/recurrent-uret-rec.png",1-42-2-1
+
+# image links in ./PID.xhtml
+"../Images/pid-treat-a.png",1-65-1-1
+"../Images/pid-treat-b.png",1-65-2-1
+"../Images/pid-treat-alt.png",1-65-2-2
+"../Images/pid-outpt-oral-treatmnt.png",1-66-1-1
+
+# image links in ./Pri-and-Sec syphilis.xhtml
+"../Images/ps-syph-adult-rec.png",1-29-1-1
+"../Images/ps-syph-child-rec.png",1-29-1-2
+
+# image links in ./proctitis-proctocolitis-enteritis.xhtml
+"../Images/proctitis.png",1-88-1-1
+
+# image links in ./sexual-assault-STDs.xhtml
+"../Images/sex-assult-meds-regimen.png",1-91-2-1
+"../Images/STDs-from-abuse.png",use
+
+# image links in ./syphilis during pregnancy.xhtml
+"../Images/syph-during-preg-rec.png",1-35-1-1
+
+# image links in ./tertiary syphilis.xhtml
+"../Images/tert-syph-rec.png",1-32-1-1
+
+# image links in ./vacc-preventable-STDs.xhtml
+"../Images/treat-hepA.png",use
+"../Images/hep-b-vacc.png",rem
+"../Images/sero-results-hep-B.png",rem
+"../Images/post-exposure-immuno-hep-B.png",rem
+
+# updated gonorrhea image links
+"../Images/unc-gon-inf-cer-urt-rec-updated.png",2-4-1-1,2-5-1-1
+"../Images/unc-gon-inf-pharynx-updated.png",2-10-1-1
+

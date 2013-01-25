@@ -14,16 +14,18 @@
         <script src="../jquery-mobile/jquery-1.8.2.min.js" type="text/javascript"></script>
         <script src="../jquery-customization.js" type="text/javascript"></script>
         <script src="../jquery-mobile/jquery.mobile-1.2.0.min.js" type="text/javascript"></script>
-        <script src="../cordova-2.1.0.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../cordova-2.2.0.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../assets/js/metrics.js" type="text/javascript" charset="utf-8"></script>
+
     </head>
     <body>
 
         <!-- Start of page -->
         <div data-role="page" id="heading_page_255" data-theme="d">
             <div data-role="header" data-id="guidelines-header" data-theme="j" data-position="fixed">
-                <a href="lv-246.html" data-role="button" data-iconshadow="false" data-corners="false" data-theme="reset" data-transition="fade" class="back_button"></a>
+                <a href="lv-246.html" data-role="button" data-iconshadow="false" data-corners="false" data-theme="reset" data-transition="fade" class="back_button" role="button" aria-label="back"></a>
                 <h1>Full STD Guidelines</h1>
-	            <a href="../menu.html"  rel="external" data-role="button" data-theme="reset" data-transition="fade" data-iconshadow="false" data-corners="false" class="menu_button ui-btn-right"></a>
+	            <a href="../menu.html"  rel="external" data-role="button" data-theme="reset" data-transition="fade" data-iconshadow="false" data-corners="false" class="menu_button ui-btn-right" role="button" aria-label="main menu"></a>
             </div>  <!-- end of header div -->
 
             <div data-role="content">
@@ -41,9 +43,16 @@
 </p>
 
             </div>
+            <script type="text/javascript">
+
+                $('div').live('pageshow', function (event, ui) {
+                    document.addEventListener("deviceready", function(){
+                        trackFullGuidelinesPageView("255");
+                                                },true);
+                });
+            </script>
         </div>
         <!-- end of guidelines heading page -->
-
     </body>
 </html>
 

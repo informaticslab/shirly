@@ -22,7 +22,8 @@
 <script src="../jquery-mobile/jquery-1.8.2.min.js" type="text/javascript"></script>
 <script src="../jquery-customization.js" type="text/javascript"></script>
 <script src="../jquery-mobile/jquery.mobile-1.2.0.min.js" type="text/javascript"></script>
-<script src="../cordova-2.1.0.js" type="text/javascript" charset="utf-8"></script>
+<script src="../cordova-2.2.0.js" type="text/javascript" charset="utf-8"></script>
+<script src="../assets/js/metrics.js" type="text/javascript" charset="utf-8"></script>
    
 </head>
 <body>
@@ -37,9 +38,9 @@
        <a href="http://www.cdc.gov/std/treatment" rel="external" target="_blank"><div class="about_icon"><img src="../assets/img/about_icon_page.png"/></div></a>
        
        <div class="about_text"> 
- <span style="font-size:15px; position:relative; top:5px;"><strong>Version: </strong>0.5.9
-<br/><strong>Build: </strong>6 <br/>
-<strong>Build Date: </strong>11/16/2012 <br/>
+ <span style="font-size:15px; position:relative; top:5px;"><strong>Version: </strong>0.5.11
+<br/><strong>Build: </strong>25 <br/>
+<strong>Build Date: </strong>1/24/2013 <br/>
 <strong>STD Data Date: </strong>8/9/2012</span><br/>
 <br/>
  </div><br/><br/><br/><br/>
@@ -64,6 +65,15 @@ For content-related questions, please visit the CDC site: <a href="http://www.cd
 </span></div>
 
 </div><!--end content-->
+    <script type="text/javascript">
+        
+        $('div').live('pageshow', function (event, ui) {
+            document.addEventListener("deviceready", function(){
+            	trackAboutUsPageView();
+            },true);
+        });
+    </script>
+
 </div> <!--end page-->
 </body>
 </html>

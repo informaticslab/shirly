@@ -698,7 +698,7 @@ def replace_table_images(soup):
 
     image_count = 0;
 
-    # get just the heading tags
+    # get just the image tags
     image_tags = soup.find_all("img")
     for image_tag in image_tags:
         if image_tag.name == "img":
@@ -740,6 +740,7 @@ SUB_HEADER_TYPE = 1
 REGIMEN_TYPE = 2
 SEPARATOR_TYPE = 3
 FOOTER_TYPE = 4
+GROUPED_SEPARATOR_TYPE = 5
 
 # Class representing table data
 class RegimenTableData():
@@ -769,8 +770,11 @@ class RegimenTableData():
     def addRegimen(self, text):
         row = RegimenTableRow(REGIMEN_TYPE, text)
         self.rows.append(row)
-    def addSeparators(self, text):
+    def addSeparator(self, text):
         row = RegimenTableRow(SEPARATOR_TYPE, text)
+        self.rows.append(row)
+    def addGroupedSeparator(self, text):
+        row = RegimenTableRow(GROUPED_SEPARATOR_TYPE, text)
         self.rows.append(row)
     def addFooter(self, text):
         row = RegimenTableRow(FOOTER_TYPE, text)
@@ -813,6 +817,15 @@ class RegimenTableData():
             <div id="or">''')
                 tf.write(row.text)
                 tf.write('''</div>''')
+
+            elif row.type == GROUPED_SEPARATOR_TYPE:
+                tf.write('''
+            <div id="or">
+                <hr/>''')
+                tf.write(row.text)
+                tf.write('''
+                <hr/>
+            </div>''')
 
 
         tf.write('''
@@ -899,7 +912,9 @@ def import_table_data(table_file):
                         elif key == 'regimen':
                             tableData.addRegimen(value)
                         elif key == 'separator':
-                            tableData.addSeparators(value)
+                            tableData.addSeparator(value)
+                        elif key == "grouped-separator":
+                            tableData.addGroupedSeparator(value)
                         elif key == 'footer':
                             tableData.addFooter(value)
                         print "Key = %s, value = %s" % (key, value)

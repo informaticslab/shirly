@@ -8,9 +8,9 @@ header,"Recommended Regimens"
 regimen,"Ceftriaxone 250 mg IM in a single dose"
 separator,OR
 regimen,"Cefixime 400 mg orally in a single dose"
-separator,PLUS
+grouped-separator,PLUS
 regimen,"Metronidazole 2 g orally in a single dose"
-separator,PLUS
+grouped-separator,PLUS
 regimen,"Azithromycin 1 g orally in a single dose OR Doxycycline 100 mg orally twice a day for 7 days"
 
 
@@ -67,9 +67,10 @@ doc-page,88
 doc-column,1
 table-in-column,1
 header,"Recommended Regimen"
-regimen,"Ceftriaxone 250 mg IM"
+regimen,"Ceftriaxone 250 mg IM in a single dose"
 separator,PLUS
 regimen,"Doxycycline 100 mg orally twice a day for 7 days"
+footer,"If painful perianal ulcers are present or mucosal ulcers are detected on anoscopy, presumptive therapy should include a regimen for genital herpes and LGV."
 
 
 condition,"Genital Warts"
@@ -170,20 +171,20 @@ regimen,"Ceftriaxone 250 mg IM in a single dose"
 separator,PLUS
 regimen,"Doxycycline 100 mg orally twice a day for 14 days"
 separator,WITH or WITHOUT
-regimen,"Metronidazole 500 mg orally twice a day for 14 days"
-separator,OR
+regimen,"Metronidazole* 500 mg orally twice a day for 14 days"
+grouped-separator,OR
 regimen,"Cefoxitin 2 g IM in a single dose and Probenecid, 1 g orally administered concurrently in a single dose"
 separator,PLUS
 regimen,"Doxycycline 100 mg orally twice a day for 14 days"
 separator,WITH or WITHOUT
-regimen,"Metronidazole 500 mg orally twice a day for 14 days"
-separator,OR
+regimen,"Metronidazole* 500 mg orally twice a day for 14 days"
+grouped-separator,OR
 regimen,"Other parenteral third-generation cephalosporin (e.g., ceftizoxime or cefotaxime)"
 separator,PLUS
 regimen,"Doxycycline 100 mg orally twice a day for 14 days"
 separator,WITH or WITHOUT
-regimen,"Metronidazole 500 mg orally twice a day for 14 days"
-
+regimen,"Metronidazole* 500 mg orally twice a day for 14 days"
+footer,"* Adding metronidazole also will effectively treat BV, which is frequently associated with PID."
 
 condition,"Pelvic Inflammatory Disease (PID)"
 patient,Women
@@ -219,7 +220,7 @@ header,"Recommended Parenteral Regimen A"
 regimen,"Cefotetan 2 g IV every 12 hours"
 separator,OR
 regimen,"Cefoxitin 2 g IV every 6 hours"
-separator,PLUS
+grouped-separator,PLUS
 regimen,"Doxycycline 100 mg orally or IV every 12 hours"
 
 
@@ -630,7 +631,7 @@ header,"Recommended Regimens"
 regimen,"Metronidazole 2 g orally in a single dose"
 separator,OR
 regimen,"Tinidazole 2 g orally in a single dose"
-separator,PLUS
+grouped-separator,PLUS
 regimen,"Azithromycin 1 g orally in a single dose (if not used for initial episode)"
 
 
@@ -850,7 +851,7 @@ regimen,"Azithromycin 1 g orally once per week for at least 3 weeks and until al
 separator,OR
 regimen,"Ciprofloxacin 750 mg orally twice a day for at least 3 weeks and until all lesions have completely healed"
 separator,OR
-regimenErythromycin base 500 mg orally four times a day for at least 3 weeks and until all lesions have completely healed"
+regimen,"Erythromycin base 500 mg orally four times a day for at least 3 weeks and until all lesions have completely healed"
 separator,OR
 regimen,"Trimethoprim-sulfamethoxazole one double-strength (160 mg/800 mg) tablet orally twice a day for at least 3 weeks and until all lesions have completely healed."
 
@@ -985,9 +986,7 @@ table-in-column,1
 header,"Updated Recommended Regimens - Uncomplicated Gonococcal Infections of the Cervix, Urethra, and Rectum"
 regimen,"Ceftriaxone 250 mg in a single intramuscular dose"
 separator,"PLUS"
-regimen,"Azithromycin 1 g orally in a single dose"
-separator,OR
-regimen,"Doxycycline 100 mg orally twice daily for 7 days*"
+regimen,"Azithromycin 1 g orally in a single dose or doxycycline 100 mg orally twice daily for 7 days*"
 
 condition,Gonorrhea
 patient,"Adolescents and Adults"
@@ -998,12 +997,17 @@ table-in-column,1
 header,"Alternative Regimens - If Ceftriaxone is Not Available"
 regimen,"Cefixime 400 mg in a single oral dose"
 separator,PLUS
-regimen,"Azithromycin 1 g orally in a single dose"
-separator,OR
-regimen,"Doxycycline 100 mg orally twice daily for 7 days*"
+regimen,"Azithromycin 1 g orally in a single dose or doxycycline 100 mg orally twice daily for 7 days*"
 separator,PLUS
 regimen,"Test-of-cure in 1 week"
-regimen,"If the patient has severe cephalosporin allergy:"
+
+condition,Gonorrhea
+patient,"Adolescents and Adults"
+doc,2
+doc-page,5
+doc-column,1
+table-in-column,2
+header,"Alternative Regimens - If the patient has severe cephalosporin allergy"
 regimen,"Azithromycin 2 g in a single oral dose"
 separator,PLUS
 regimen,"Test-of-cure in 1 week"
@@ -1018,7 +1022,6 @@ table-in-column,1
 header,"Recommended Regimens" 
 regimen,"Ceftriaxone 250 mg IM in a single dose"
 separator,PLUS
-regimen,"Azithromycin 1 g orally in a single dose"
-separator,OR 
-regimen,"Doxycycline 100 mg orally twice a day for 7 days"
+regimen,"Azithromycin 1 g orally in a single dose or doxycycline 100 mg orally twice a day for 7 days*"
+footer,"* Because of the high prevalence of tetracycline resistance among Gonococcal Isolate Surveillance Project isolates, particularly those with elevated minimum inhibitory concentrations to cefixime, the use of azithromycin as the second antimicrobial is preferred." 
 

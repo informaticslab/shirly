@@ -142,6 +142,6 @@
 "../Images/post-exposure-immuno-hep-B.png",rem
 
 # updated gonorrhea image links
-"../Images/unc-gon-inf-cer-urt-rec-updated.png",2-4-1-1,2-5-1-1
+"../Images/unc-gon-inf-cer-urt-rec-updated.png",2-4-1-1,2-5-1-1,2-5-1-2
 "../Images/unc-gon-inf-pharynx-updated.png",2-10-1-1
 

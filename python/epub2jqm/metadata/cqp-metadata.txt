@@ -47,7 +47,7 @@ dx-tx,312,313
 cond1,Gonorrhea
 cond2,"Adolescents & Adults"
 cond3,"Cervix, Urethra, or Rectum - Infection"
-regimens,2-4-1-1,2-5-1-1
+regimens,2-4-1-1,2-5-1-1,2-5-1-2
 dx-tx,231
 cond3,"Pharynx - Infection"
 regimens,2-10-1-1

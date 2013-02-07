@@ -1,9 +1,9 @@
 function trackPageView (section, page)
 {
-        console.log("In trackPageView");
+        // console.log("In trackPageView");
 
 		// these first vars change most often depending on version and if debug is true
-		var appVersion = "0.5.11.25";
+		var appVersion = "0.5.12.7";
 		var debug = true;
 		var debugLocal = false;
 		var cdcServer = "http://tools.cdc.gov/metrics.aspx?";
@@ -11,26 +11,28 @@ function trackPageView (section, page)
 
 		// server information 
 		var server = debugLocal ? localServer : cdcServer;
-        console.log("server = " + server);
+        // console.log("server = " + server);
 		
 		// device info from PhoneGap
         var deviceName = device.name;
 		var deviceOsName = device.platform;
 		var deviceOsVers = device.version;
 		var deviceParams = "c54=" + deviceOsName + "&c55=" + deviceOsVers + "&c56=" + deviceName;
-        console.log("deviceParams = " + deviceParams);
+        // console.log("deviceParams = " + deviceParams);
 		
 		// application info
 		var appInfoParams = "c53=" + appVersion;
 		
 		// page information
 		var pageName = "contenttitle=" + section + ":" + page;
-        console.log(pageName);
+        // console.log(pageName);
+        
+        var sectionInfo = "c59=" + section;
 		
 		// device online status
 		var networkStatus = null;
 		var networkState = navigator.connection.type;
-        console.log("networkState = " + networkState);
+        // console.log("networkState = " + networkState);
 
         // device network state
 		if (networkState == Connection.NONE)
@@ -43,11 +45,11 @@ function trackPageView (section, page)
 		var prodConstParams = "reportsuite=cdcsynd";
 		var debugConstParams = "reportsuite=devcdc";
 		var constParams = (debug ? debugConstParams : prodConstParams) + "&" + commonConstParams;
-        console.log("constParams = " + constParams);
+        // console.log("constParams = " + constParams);
 
-		var metricUrl = server + constParams + "&" + deviceParams + "&" + appInfoParams + "&" + deviceOnline + "&" + pageName;
+		var metricUrl = server + constParams + "&" + deviceParams + "&" + appInfoParams + "&" + deviceOnline + "&" + sectionInfo + "&" + pageName;
 		metricUrl = encodeURI(metricUrl);
-        console.log("metric URL = " + metricUrl);
+        // console.log("metric URL = " + metricUrl);
         
         $.get(metricUrl);
 
@@ -56,7 +58,7 @@ function trackPageView (section, page)
 function trackFullGuidelinesPageView(page)
 {
 	var section = "Full Guidelines";
-    console.log("In trackFullGuidelinesPageView");
+    // console.log("In trackFullGuidelinesPageView");
 	trackPageView (section, page);
 
 }
@@ -65,7 +67,7 @@ function trackMainMenuPageView()
 {
 
 	var section = "Main Menu";
-    console.log("In trackMainMenuPageView");
+    // console.log("In trackMainMenuPageView");
 	trackPageView (section, '1');
 
 }
@@ -73,7 +75,7 @@ function trackMainMenuPageView()
 function trackConditionQuickPickDxTxPageView(dxTxPageId)
 {
 	var qpSection = "Condition Quick Pick: DxTx";
-    console.log("In trackConditionQuickPickDxTxPageView");
+    // console.log("In trackConditionQuickPickDxTxPageView");
 	trackPageView (qpSection, dxTxPageId);
 
 }
@@ -81,7 +83,7 @@ function trackConditionQuickPickDxTxPageView(dxTxPageId)
 function trackConditionQuickPickTreatmentPageView(treatmentPageId)
 {
 	var qpSection = "Condition Quick Pick: Treatment";
-    console.log("In trackConditionQuickPickTreatmentPageView");
+    // console.log("In trackConditionQuickPickTreatmentPageView");
 	trackPageView (qpSection, treatmentPageId);
 
 }
@@ -89,7 +91,17 @@ function trackConditionQuickPickTreatmentPageView(treatmentPageId)
 function trackAboutUsPageView()
 {
 	var section = "About Us";
-    console.log("In trackAboutUsPageView");
+    // console.log("In trackAboutUsPageView");
 	trackPageView (section, '1');
 
 }
+
+
+function trackHistoryPdfPageView()
+{
+	var section = "Taking a Sexual History PDF";
+    // console.log("In trackHistoryPdfPageView");
+	trackPageView (section, '1');
+
+}
+

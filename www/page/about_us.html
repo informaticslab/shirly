@@ -11,8 +11,6 @@
     <link href="../assets/css/about.css" rel="stylesheet" type="text/css"/> 
        
     <link href="../jquery-mobile/jquery.mobile.structure-1.2.0.min.css" rel="stylesheet" type="text/css"/>
-
- 
     
 	<style type="text/css">
 	.ui-page-pre-in {opacity: 0;}
@@ -38,9 +36,9 @@
        <a href="http://www.cdc.gov/std/treatment" rel="external" target="_blank"><div class="about_icon"><img src="../assets/img/about_icon_page.png"/></div></a>
        
        <div class="about_text"> 
- <span style="font-size:15px; position:relative; top:5px;"><strong>Version: </strong>0.5.11
-<br/><strong>Build: </strong>25 <br/>
-<strong>Build Date: </strong>1/24/2013 <br/>
+ <span style="font-size:15px; position:relative; top:5px;"><strong>Version: </strong>0.5.12
+<br/><strong>Build: </strong>7 <br/>
+<strong>Build Date: </strong>2/5/2013 <br/>
 <strong>STD Data Date: </strong>8/9/2012</span><br/>
 <br/>
  </div><br/><br/><br/><br/>
@@ -67,7 +65,7 @@ For content-related questions, please visit the CDC site: <a href="http://www.cd
 </div><!--end content-->
     <script type="text/javascript">
         
-        $('div').live('pageshow', function (event, ui) {
+        $('#about').live('pageshow', function (event, ui) {
             document.addEventListener("deviceready", function(){
             	trackAboutUsPageView();
             },true);

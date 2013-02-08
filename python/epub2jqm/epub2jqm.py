@@ -19,6 +19,8 @@ headingsStore = {}          # store metadata for all headings found in EPUB
 regimenStore = {}             # store metadata for tables
 conditionStore = []               # store condition for Condition Quick Pick feature
 imageMap = {}
+REPLACE_IMAGE_WITH_HTML_TAG = "replace-image-with-html"
+REPLACE_IMAGE_WITH_CONDITION_TAG = "replace-image-with-condition"
 
 class Breadcrumb():
     def __init__(self, text, link):
@@ -26,19 +28,22 @@ class Breadcrumb():
         self.link = link
 
 class ImageFile():
-    (REMOVE,USE,REPLACE) = (0,1,2)
+    (REMOVE,USE,CONDITION_REPLACE, HTML_REPLACE) = (0,1,2,3)
     def __init__(self, image_file):
         self.file = image_file
-        self.replaceWithTables = []
+        self.replaceWithConditionTables = []
+        self.replaceWithHtmlFile = None
         self.command = None
     def use(self):
         self.command = ImageFile.USE
     def remove(self):
         self.command = ImageFile.REMOVE
-    def replace(self):
-        self.command = ImageFile.REPLACE
+    def replaceWithCondition(self):
+        self.command = ImageFile.CONDITION_REPLACE
+    def replaceWithHtml(self):
+        self.command = ImageFile.HTML_REPLACE
     def __repr__(self):
-        return "ImageFile(file=%r,command=%r, tables=%r)" % (self.file,self.command,self.replaceWithTables)
+        return "ImageFile(file=%r,command=%r, tables=%r)" % (self.file,self.command,self.replaceWithConditionTables)
 
 
 #region Common Head for HTML files
@@ -60,6 +65,7 @@ def write_guidelines_common_head(f, title):
         <link href="../assets/css/custom_arrow.css" rel="stylesheet" type="text/css"/>
         <link href="../jquery-mobile/jquery.mobile.structure-1.2.0.min.css" rel="stylesheet" type="text/css"/>
         <link href="../assets/css/full.css" rel="stylesheet" type="text/css"/>
+        <link href="../assets/css/recreated_tables.css" rel="stylesheet" type="text/css"/>
         <script src="../jquery-mobile/jquery-1.8.2.min.js" type="text/javascript"></script>
         <script src="../jquery-customization.js" type="text/javascript"></script>
         <script src="../jquery-mobile/jquery.mobile-1.2.0.min.js" type="text/javascript"></script>
@@ -394,14 +400,25 @@ def write_heading_content(headingId):
                     ## Read the first line
                     line = thcf.readline()
 
-                    ## search for tableinsert tags
+                    ## search for replace image tags
                     while line:
-                        if "<tableinsert>" in line:
+                        if REPLACE_IMAGE_WITH_CONDITION_TAG in line:
                             tableId = thcf.readline().strip()
                             regimenTable = regimenStore[tableId]
                             regimenData = regimenTable.readLinesFromTableHtmlFile()
                             hidf.writelines(regimenData)
-                            line = thcf.readline()   #read closing tableinsert tag
+                            line = thcf.readline()   #read closing cond-table-insert tag
+                        elif REPLACE_IMAGE_WITH_HTML_TAG in line:
+                            htmlSnippetFileName = thcf.readline().strip()
+                            with open("data/html/" + htmlSnippetFileName) as htmlSnippetFile:
+                                try:
+                                    htmlSnippetData = htmlSnippetFile.readlines()
+                                    hidf.writelines(htmlSnippetData)
+                                except IOError:
+                                    print "Can not open HTML snippet %s for image replacement." % htmlSnippetFileName
+                                finally:
+                                    htmlSnippetFile.close()
+
                         else:
                             hidf.write(line)
                         line = thcf.readline()
@@ -651,47 +668,7 @@ def create_heading_map(fl):
             write_children_listview(headingId)
             # print "Parent ID of", parentHeadingId, "has children ", childHeadings
 
-def old_replace_table_images(fl):
-    global genPath
-    global imageMap
 
-    image_count = 0;
-    try:
-        # turn file handle into zip file handle
-        fl = zipfile.ZipFile(fl, 'r')
-
-        #for each chapter file in the EPUB
-        for title, src in chaps:
-            if src:
-                # BeautifulSoup creates a nested data structure that represents
-                # the XHTML chapter file that is in the EPUB document
-                soup = BeautifulSoup(fl.read(src))
-
-                # get just the heading tags
-                image_tags = soup.find_all("img")
-                for image_tag in image_tags:
-                    if image_tag.name == "img":
-                        print "Image tag = %s" % image_tag
-                        print "Image src = %s" % image_tag['src']
-
-                        # look up image in image map
-                        image_src = image_tag.get('src')
-                        image_file = imageMap[image_src]
-
-                        assert isinstance(image_file, ImageFile)
-                        if image_file.command == ImageFile.REMOVE:
-                            image_tag.extract()
-                            print "remove file"
-                        elif image_file.command == ImageFile.USE:
-                            print "use file"
-                        if image_file.command == ImageFile.REPLACE:
-                            print "replace file"
-
-                        image_count += 1
-
-    finally:
-        fl.close()
-         # print "Number of IMG tags in EPUB = %d " % image_count
 
 def replace_table_images(soup):
     global imageMap
@@ -715,16 +692,21 @@ def replace_table_images(soup):
                 print "remove file"
             elif image_file.command == ImageFile.USE:
                 print "use file"
-            if image_file.command == ImageFile.REPLACE:
-                for tableId in image_file.replaceWithTables:
+            elif image_file.command == ImageFile.CONDITION_REPLACE:
+                for tableId in image_file.replaceWithConditionTables:
                     # print "Table Lines = %r" % lines
 
-                    table_insert_tag = soup.new_tag("tableinsert")
+                    table_insert_tag = soup.new_tag(REPLACE_IMAGE_WITH_CONDITION_TAG)
                     table_insert_tag.string = tableId
                     image_tag.insert_before(table_insert_tag)
                 image_tag.extract()
                 #image_tag.replace_with(''.join(lines))
                 # print "replace file"
+            elif image_file.command == ImageFile.HTML_REPLACE:
+                html_insert_tag = soup.new_tag(REPLACE_IMAGE_WITH_HTML_TAG)
+                html_insert_tag.string = image_file.replaceWithHtmlFile
+                image_tag.insert_before(html_insert_tag)
+                image_tag.extract()
 
             image_count += 1
 
@@ -1044,6 +1026,7 @@ class Condition():
         <link href="../assets/css/custom_arrow.css" rel="stylesheet" type="text/css"/>
         <link href="../jquery-mobile/jquery.mobile.structure-1.2.0.min.css" rel="stylesheet" type="text/css"/>
         <link href="../assets/css/treatments.css" rel="stylesheet" type="text/css"/>
+        <link href="../assets/css/recreated_tables.css" rel="stylesheet" type="text/css"/>
         <script src="../jquery-mobile/jquery-1.8.2.min.js" type="text/javascript"></script>
         <script src="../jquery-customization.js" type="text/javascript"></script>
         <script src="../jquery-mobile/jquery.mobile-1.2.0.min.js" type="text/javascript"></script>
@@ -1178,11 +1161,11 @@ class Condition():
                             ## Read the first line
                         line = sectionf.readline()
 
-                        ## search for tableinsert tags and throw them away
+                        ## search for cond-table-insert tags and throw them away
                         while line:
-                            if "<tableinsert>" in line:
+                            if REPLACE_IMAGE_WITH_CONDITION_TAG in line:
                                 line = sectionf.readline()   #read table ID
-                                line = sectionf.readline()   #read closing tableinsert tag
+                                line = sectionf.readline()   #read closing cond-table-insert tag
                             else:
                                 html_file.write(line)
                             line = sectionf.readline()
@@ -1387,7 +1370,11 @@ def import_condition_data(table_file):
         condition.write_html_files()
 
 
-
+# reads the image_map.txt file to determine how we handle images in the EPUB. Options are:
+#       use - use this image as is
+#       rem - remove the image and nothing takes its place
+#       rep - replace images with
+#
 def import_image_map(map_file):
 
     specified_files = 0
@@ -1407,9 +1394,13 @@ def import_image_map(map_file):
                         imageFile.remove()
                     elif command == 'use':
                         imageFile.use()
-                    else:
-                        imageFile.replace()
-                        imageFile.replaceWithTables = row[1:]
+                    elif command == 'cond':
+                        imageFile.replaceWithCondition()
+                        imageFile.replaceWithConditionTables = row[2:]
+                    elif command == 'html':
+                        imageFile.replaceWithHtml()
+                        imageFile.replaceWithHtmlFile = row[2]
+
                     imageMap[fileName] = imageFile
                     specified_files += 1
                     print 'New image file object %r' % imageFile
@@ -1425,7 +1416,6 @@ def initDirs():
         print "Gen path " + genPath + " exists..."
 
     print "Creation of directories complete."
-
 
 if __name__ == '__main__':
 

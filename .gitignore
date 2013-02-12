@@ -1,5 +1,6 @@
 android/bin/
 android/gen/
+android/builds/
 ios/StdGuide.xcodeproj/
 python/epub2jqm/.idea/
 python/epub2jqm/page/

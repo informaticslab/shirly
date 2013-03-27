@@ -183,7 +183,7 @@ def write_guidelines_page_body_start(f, headingId):
     f.write(get_heading_parent_listview_link(headingId))
     f.write('''" data-role="button" data-iconshadow="false" data-corners="false" data-theme="reset" data-transition="fade" class="back_button" role="button" aria-label="back"></a>''')
     f.write('''
-                <h1>Full STD Guidelines</h1>
+                <h1>Full STD Tx Guidelines</h1>
 	            <a href="../menu.html"  rel="external" data-role="button" data-theme="reset" data-transition="fade" data-iconshadow="false" data-corners="false" class="menu_button ui-btn-right" role="button" aria-label="main menu"></a>''')
     #print headingsStore[headingId]
 
@@ -390,7 +390,7 @@ def write_heading_content(headingId):
 
         try:
 
-            write_guidelines_common_head(hidf, "Full STD Guidelines")
+            write_guidelines_common_head(hidf, "Full STD Tx Guidelines")
             write_guidelines_page_body_start(hidf, headingId)
 
             # read in raw content from temp file and write it to heading content file
@@ -471,7 +471,7 @@ def write_children_listview_body(f, headingId):
         f.write(get_heading_parent_link(headingId))
         f.write('''" data-role="button" data-theme="reset" data-iconshadow="false" data-transition="fade" data-corners="false" class="back_button" role="button" aria-label="back"></a>''')
     f.write('''
-                <h1>Full STD Guidelines</h1>
+                <h1>Full STD Tx Guidelines</h1>
 	            <a href="../menu.html" rel="external" data-role="button" data-theme="reset" data-iconshadow="false" data-corners="false" data-transition="fade" class="menu_button ui-btn-right" role="button" aria-label="main menu"></a>
             </div>  <!-- end of header div -->
     ''')
@@ -525,7 +525,7 @@ def write_children_listview(headingId):
     with open("page/headings/lv-" + str(headingId) + ".html", "w") as lvf:
 
         try:
-            write_guidelines_common_head(lvf, 'Full STD Guidelines')
+            write_guidelines_common_head(lvf, 'Full STD Tx Guidelines')
             write_children_listview_body(lvf, headingId)
         finally:
             lvf.close()

@@ -80,6 +80,12 @@
 	background:#fff!important;
 }
 
+.ui-header .ui-title {
+    margin-right: 10%;
+    margin-left: 10%;
+}
+
+
 .ui-bar-menu_head {
 /*background:#3b5999 !important;*/
 	background: 			#252b25  /*{c-body-background-color}*/;

@@ -105,3 +105,20 @@ function trackHistoryPdfPageView()
 
 }
 
+function trackReferencesPageView(page)
+{
+	var section = "References";
+    // console.log("In trackFullGuidelinesPageView");
+	trackPageView (section, page);
+
+}
+
+function trackTermsPageView(page)
+{
+	var section = "Terms and Abbreviations";
+    // console.log("In trackFullGuidelinesPageView");
+	trackPageView (section, page);
+
+}
+
+

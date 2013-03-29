@@ -38,7 +38,7 @@ def write_references_common_head(f, title):
 
         <link href="../jquery-mobile/jquery.mobile.theme-1.2.0.min.css" rel="stylesheet" type="text/css"/>
         <link href="../jquery-mobile/jquery.mobile.swatch.f.css" rel="stylesheet" type="text/css"/>
-        <link href="../jquery-mobile/jquery.mobile.swatch.j.css" rel="stylesheet" type="text/css"/>
+        <link href="../jquery-mobile/jquery.mobile.swatch.l.css" rel="stylesheet" type="text/css"/>
         <link href="../assets/css/custom_arrow.css" rel="stylesheet" type="text/css"/>
         <link href="../jquery-mobile/jquery.mobile.structure-1.2.0.min.css" rel="stylesheet" type="text/css"/>
         <link href="../assets/css/full.css" rel="stylesheet" type="text/css"/>
@@ -643,7 +643,7 @@ if __name__ == '__main__':
     )
     parser.add_argument('-d', '--dump', action='store_true',
         help='dump EPUB to text')
-    parser.add_argument('-e', '--refs', help='references EPUB file to parse')
+    parser.add_argument('-r', '--refs', help='references EPUB file to parse')
     parser.add_argument('-t', '--tables', help='CSV table data file')
     args = parser.parse_args()
 

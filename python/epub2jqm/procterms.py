@@ -14,8 +14,8 @@ locale.setlocale(locale.LC_ALL, 'en_US.utf-8')
 basedir = ''
 genPath = 'gen'
 tempPath = 'temp'
-rawHeadingPath = "temp/refs/heading-content-raw/"
-pageHeadingsPath = "page/refs/headings/"
+rawHeadingPath = "temp/terms/heading-content-raw/"
+pageHeadingsPath = "page/terms/headings/"
 chaps = None
 headingsStore = {}          # store metadata for all headings found in EPUB
 
@@ -26,7 +26,7 @@ class Breadcrumb():
 
 
 #region Common Head for HTML files
-def write_references_common_head(f, title):
+def write_terms_common_head(f, title):
     f.write('''<!DOCTYPE html>
 <html>
     <head>
@@ -40,7 +40,7 @@ def write_references_common_head(f, title):
 
         <link href="../jquery-mobile/jquery.mobile.theme-1.2.0.min.css" rel="stylesheet" type="text/css"/>
         <link href="../jquery-mobile/jquery.mobile.swatch.f.css" rel="stylesheet" type="text/css"/>
-        <link href="../jquery-mobile/jquery.mobile.swatch.l.css" rel="stylesheet" type="text/css"/>
+        <link href="../jquery-mobile/jquery.mobile.swatch.k.css" rel="stylesheet" type="text/css"/>
         <link href="../assets/css/custom_arrow.css" rel="stylesheet" type="text/css"/>
         <link href="../jquery-mobile/jquery.mobile.structure-1.2.0.min.css" rel="stylesheet" type="text/css"/>
         <link href="../assets/css/full.css" rel="stylesheet" type="text/css"/>
@@ -54,7 +54,7 @@ def write_references_common_head(f, title):
     </head>''')
 
 #endregion
-def write_references_breadcrumbs(html_file, headingId):
+def write_terms_breadcrumbs(html_file, headingId):
 
     # do not write breadcrumbs for root condition
     if headingId != 0:
@@ -79,7 +79,7 @@ def write_references_breadcrumbs(html_file, headingId):
         breadcrumbs.reverse()
 
         html_file.write('''
-            <div id=references_breadcrumbs>
+            <div id=terms_breadcrumbs>
             ''')
         if len(breadcrumbs):
             for index, breadcrumb in enumerate(breadcrumbs):
@@ -100,11 +100,11 @@ def write_references_breadcrumbs(html_file, headingId):
             html_file.write(get_heading_title(headingId))
 
         html_file.write('''
-            </div>   <!-- end of references listview breadcrumbs -->
+            </div>   <!-- end of terms listview breadcrumbs -->
             </br>''')
 
 
-def write_references_listview_breadcrumbs(html_file, headingId):
+def write_terms_listview_breadcrumbs(html_file, headingId):
 
     # do not write breadcrumbs for root condition
     if headingId != 0:
@@ -123,7 +123,7 @@ def write_references_listview_breadcrumbs(html_file, headingId):
 
         html_file.write('''
             </br>
-            <div id=references_listview_breadcrumbs>
+            <div id=terms_listview_breadcrumbs>
             ''')
         if len(breadcrumbs):
             for index, breadcrumb in enumerate(breadcrumbs):
@@ -141,11 +141,11 @@ def write_references_listview_breadcrumbs(html_file, headingId):
         html_file.write(get_heading_title(headingId))
 
         html_file.write('''
-            </div>   <!-- end of references listview breadcrumbs -->
+            </div>   <!-- end of terms listview breadcrumbs -->
             </br>''')
 
 
-def write_references_page_body_start(f, headingId):
+def write_terms_page_body_start(f, headingId):
     global headingsStore
     f.write('''
     <body>
@@ -157,12 +157,12 @@ def write_references_page_body_start(f, headingId):
     f.write(pageId)
 
     f.write('''" data-theme="d">
-            <div data-role="header" data-id="references-header" data-theme="l" data-position="fixed">
+            <div data-role="header" data-id="terms-header" data-theme="k" data-position="fixed">
                 <a href="''')
     f.write(get_heading_parent_listview_link(headingId))
     f.write('''" data-role="button" data-iconshadow="false" data-corners="false" data-theme="reset" data-transition="fade" class="back_button" role="button" aria-label="back"></a>''')
     f.write('''
-                <h1>References</h1>
+                <h1>Terms and Abbreviations</h1>
 	            <a href="../menu.html"  rel="external" data-role="button" data-theme="reset" data-transition="fade" data-iconshadow="false" data-corners="false" class="menu_button ui-btn-right" role="button" aria-label="main menu"></a>''')
     #print headingsStore[headingId]
 
@@ -171,10 +171,10 @@ def write_references_page_body_start(f, headingId):
 
             <div data-role="content">''')
 
-    write_references_breadcrumbs(f, headingId)
+    write_terms_breadcrumbs(f, headingId)
 
 
-def write_references_page_body_end(f, headingId):
+def write_terms_page_body_end(f, headingId):
 
     f.write('''
             </div>
@@ -182,7 +182,7 @@ def write_references_page_body_end(f, headingId):
 
                 $('div').live('pageshow', function (event, ui) {
                     document.addEventListener("deviceready", function(){
-                        trackReferencesPageView("''')
+                        trackTermsPageView("''')
     metrics_string = "%s" % headingId
 
     f.write(metrics_string)
@@ -191,7 +191,7 @@ def write_references_page_body_end(f, headingId):
                 });
             </script>
         </div>
-        <!-- end of references heading page -->
+        <!-- end of terms heading page -->
     </body>
 </html>
 
@@ -369,8 +369,8 @@ def write_heading_content(headingId):
 
         try:
 
-            write_references_common_head(hidf, "References")
-            write_references_page_body_start(hidf, headingId)
+            write_terms_common_head(hidf, "Terms and Abbreviations")
+            write_terms_page_body_start(hidf, headingId)
 
             # read in raw content from temp file and write it to heading content file
             with open(rawHeadingPath + str(headingId) + ".html", "r") as thcf:
@@ -386,7 +386,7 @@ def write_heading_content(headingId):
                 finally:
                     thcf.close()
 
-            write_references_page_body_end(hidf, headingId)
+            write_terms_page_body_end(hidf, headingId)
 
         finally:
             hidf.close()
@@ -422,14 +422,14 @@ def write_children_listview_body(f, headingId):
     f.write(str(headingId))
     f.write('''" data-theme="d">
 
-  	        <div data-role="header" data-id="references-header" data-theme="l" data-position="fixed">''')
+  	        <div data-role="header" data-id="terms-header" data-theme="k" data-position="fixed">''')
 
     if get_heading_level(headingId) > 0:
         f.write('''<a href="''')
         f.write(get_heading_parent_link(headingId))
         f.write('''" data-role="button" data-theme="reset" data-iconshadow="false" data-transition="fade" data-corners="false" class="back_button" role="button" aria-label="back"></a>''')
     f.write('''
-                <h1>References</h1>
+                <h1>Terms and Abbreviations</h1>
 	            <a href="../menu.html" rel="external" data-role="button" data-theme="reset" data-iconshadow="false" data-corners="false" data-transition="fade" class="menu_button ui-btn-right" role="button" aria-label="main menu"></a>
             </div>  <!-- end of header div -->
     ''')
@@ -439,7 +439,7 @@ def write_children_listview_body(f, headingId):
     f.write('''
             <div data-role="content" data-theme="d" >''')
 
-    write_references_listview_breadcrumbs(f, headingId)
+    write_terms_listview_breadcrumbs(f, headingId)
 
     f.write('''
                 <ul data-count-theme="b" data-role="listview" data-inset="true" data-divider-theme="a">''')
@@ -483,7 +483,7 @@ def write_children_listview(headingId):
     with open(pageHeadingsPath + "lv-" + str(headingId) + ".html", "w") as lvf:
 
         try:
-            write_references_common_head(lvf, 'References')
+            write_terms_common_head(lvf, 'Terms and Abbreviations')
             write_children_listview_body(lvf, headingId)
         finally:
             lvf.close()
@@ -505,10 +505,10 @@ def create_heading_map(fl):
         fl = zipfile.ZipFile(fl, 'r')
 
         # create a new JSON file that contains all the headings metadata
-        with open("content-map-refs.txt", "w") as f:
+        with open("content-map-terms.txt", "w") as f:
             try:
                 # write root
-                headingsStore[0] = {'title':'References', 'level':0, 'parent':None, 'src':None, 'hasText':False, 'hasChildren':True}
+                headingsStore[0] = {'title':'TermsAbbreviations', 'level':0, 'parent':None, 'src':None, 'hasText':False, 'hasChildren':True}
 
                 #for each chapter file in the EPUB
                 for title, src in chaps:
@@ -554,7 +554,7 @@ def create_heading_map(fl):
                             # may delete this later as unnecessary
                             htmlFile = os.path.basename(src)
                             htmlFile = os.path.splitext(htmlFile)[0]
-                            htmlFile = "temp/refs/orig-file-content/" + htmlFile + ".html"
+                            htmlFile = "temp/terms/orig-file-content/" + htmlFile + ".html"
                             # print "HTML file =", htmlFile
 
                             # see if heading has text below it
@@ -660,18 +660,17 @@ if __name__ == '__main__':
     )
     parser.add_argument('-d', '--dump', action='store_true',
         help='dump EPUB to text')
-    parser.add_argument('-r', '--refs', help='references EPUB file to parse')
-    parser.add_argument('-t', '--tables', help='CSV table data file')
+    parser.add_argument('-t', '--terms', help='terms EPUB file to parse')
     args = parser.parse_args()
 
     initDirs()
-    if args.refs:
+    if args.terms:
         if args.dump:
-            dump_epub(args.refs)
+            dump_epub(args.terms)
         else:
             try:
-                parse_epub(args.refs)
-                create_heading_map(args.refs)
+                parse_epub(args.terms)
+                create_heading_map(args.terms)
             except KeyboardInterrupt:
                 pass
 

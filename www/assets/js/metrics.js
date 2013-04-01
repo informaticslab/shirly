@@ -3,8 +3,8 @@ function trackPageView (section, page)
         // console.log("In trackPageView");
 
 		// these first vars change most often depending on version and if debug is true
-		var appVersion = "0.5.16.2";
-		var debug = true;
+		var appVersion = "0.5.17.1";
+		var debug = false;
 		var debugLocal = false;
 		var cdcServer = "http://tools.cdc.gov/metrics.aspx?";
 		var localServer = "http://192.168.2.18:8989/metrics?";

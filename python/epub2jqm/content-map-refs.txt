@@ -7,15 +7,105 @@
         "title": "References", 
         "hasText": false, 
         "children": [
-            1
+            1, 
+            2, 
+            3, 
+            4, 
+            5, 
+            6, 
+            7, 
+            8, 
+            9, 
+            10, 
+            11
         ]
     }, 
     "1": {
-        "src": "temp/refs/orig-file-content/terms-and-abbreviations.html", 
+        "src": "temp/refs/orig-file-content/references.html", 
         "parent": 0, 
         "hasChildren": false, 
         "level": 1, 
-        "title": "Terms and Abbreviations", 
+        "title": "References 1-50", 
+        "hasText": true
+    }, 
+    "2": {
+        "src": "temp/refs/orig-file-content/references.html", 
+        "parent": 0, 
+        "hasChildren": false, 
+        "level": 1, 
+        "title": "References 51-100", 
+        "hasText": true
+    }, 
+    "3": {
+        "src": "temp/refs/orig-file-content/references.html", 
+        "parent": 0, 
+        "hasChildren": false, 
+        "level": 1, 
+        "title": "References 101-150", 
+        "hasText": true
+    }, 
+    "4": {
+        "src": "temp/refs/orig-file-content/references.html", 
+        "parent": 0, 
+        "hasChildren": false, 
+        "level": 1, 
+        "title": "References 151-200", 
+        "hasText": true
+    }, 
+    "5": {
+        "src": "temp/refs/orig-file-content/references.html", 
+        "parent": 0, 
+        "hasChildren": false, 
+        "level": 1, 
+        "title": "References 201-250", 
+        "hasText": true
+    }, 
+    "6": {
+        "src": "temp/refs/orig-file-content/references.html", 
+        "parent": 0, 
+        "hasChildren": false, 
+        "level": 1, 
+        "title": "References 251-300", 
+        "hasText": true
+    }, 
+    "7": {
+        "src": "temp/refs/orig-file-content/references.html", 
+        "parent": 0, 
+        "hasChildren": false, 
+        "level": 1, 
+        "title": "References 301-350", 
+        "hasText": true
+    }, 
+    "8": {
+        "src": "temp/refs/orig-file-content/references.html", 
+        "parent": 0, 
+        "hasChildren": false, 
+        "level": 1, 
+        "title": "References 351-400", 
+        "hasText": true
+    }, 
+    "9": {
+        "src": "temp/refs/orig-file-content/references.html", 
+        "parent": 0, 
+        "hasChildren": false, 
+        "level": 1, 
+        "title": "References 401-450", 
+        "hasText": true
+    }, 
+    "10": {
+        "src": "temp/refs/orig-file-content/references.html", 
+        "parent": 0, 
+        "hasChildren": false, 
+        "level": 1, 
+        "title": "References 451-489", 
+        "hasText": true
+    }, 
+    "11": {
+        "src": "temp/refs/orig-file-content/references.html", 
+        "parent": 0, 
+        "hasChildren": false, 
+        "level": 1, 
+        "title": "2012 References S1-S10", 
         "hasText": true
     }
 }

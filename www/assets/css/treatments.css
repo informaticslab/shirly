@@ -52,11 +52,11 @@ hr {border:none; text-align:left; color:#d2d8db; background-color:#d2d8db; heigh
 #info_active {color:#ffffff; padding-bottom:3px;}
 
 
-#treat_active .ui-icon { background:  url(../img/medical_bag_active.png)  50% 50% no-repeat;  background-size: 27px 23px; padding-left: 15px !important;  }
+#treat_active .ui-icon { background:  url(../img/medical_bag.png)  50% 50% no-repeat;  background-size: 27px 23px; padding-left: 15px !important;  }
 #info_inactive .ui-icon { background:  url(../img/notepad_inactive.png) 50% 50%  no-repeat; background-size: 27px 23px;padding-left: 20px !important;  }
 	
 #treat_inactive .ui-icon { background:  url(../img/medical_bag_inactive.png)  50% 50% no-repeat;  background-size: 27px 23px; padding-left: 15px !important;  }
-#info_active .ui-icon { background:  url(../img/notepad_active.png) 50% 50%  no-repeat; background-size: 27px 23px;padding-left: 20px !important;  }
+#info_active .ui-icon { background:  url(../img/notepad.png) 50% 50%  no-repeat; background-size: 27px 23px;padding-left: 20px !important;  }
 
 
 

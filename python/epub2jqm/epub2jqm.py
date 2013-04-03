@@ -1179,13 +1179,13 @@ class Condition():
             <div data-role="footer" data-id="regimens-footer" data-position="fixed" class="tab_treatment">
                 <div data-role="navbar" class="tab_icons" data-iconpos="left">
                     <ul>
-                        <li><a href="#" id="treat_active" data-icon="custom">Treatments</a></li>
+                        <li><a href="#" id="treat_active" class="ui-btn-active ui-state-persist" data-icon="custom">Treatments</a></li>
                         <li><a href="''')
         if self.hasDxTx:
-            html_file.write(self.dxtxPage)
+            html_file.write(self.dxtxPage + '"')
         else:
-            html_file.write("#")
-        html_file.write('''" id="info_inactive" data-icon="custom">More Info</a></li>
+            html_file.write('#" class="ui-disabled"')
+        html_file.write(''' id="info_active" data-icon="custom">More Info</a></li>
                     </ul>
                 </div><!-- navbar -->
             </div><!-- footer -->
@@ -1218,12 +1218,12 @@ class Condition():
                     <ul>
                         <li><a href="''')
         if self.hasRegimens:
-            html_file.write(self.regimensPage)
+            html_file.write(self.regimensPage  + '"')
         else:
-            html_file.write("#")
+            html_file.write('#" class="ui-disabled"')
 
-        html_file.write('''" id="treat_inactive" data-icon="custom">Treatments</a></li>
-                        <li><a href="#" id="info_active" data-icon="custom">More Info</a></li>
+        html_file.write(''' id="treat_active" data-icon="custom">Treatments</a></li>
+                        <li><a href="#" id="info_active"  class="ui-btn-active ui-state-persist" data-icon="custom">More Info</a></li>
                     </ul>
                 </div><!-- /navbar -->
             </div><!-- /footer -->

@@ -11,6 +11,7 @@
 
 <link href="../assets/css/menu.css" rel="stylesheet" type="text/css"/>
 <link href="../assets/css/eula.css" rel="stylesheet" type="text/css"/>
+ <link href="../jquery-mobile/jquery.mobile.swatch.m.css" rel="stylesheet" type="text/css"/>
 <style type="text/css"> .ui-page-pre-in {opacity: 0;} </style>
 
 <script src="../jquery-mobile/jquery-1.8.2.min.js" type="text/javascript"></script>
@@ -116,7 +117,7 @@ ON THE USAGE OF THE STD TX GUIDE APP MAY BE GATHERED AND STORED AUTOMATICALLY
 ABOUT THE USAGE OF THE APP. THE USAGE DATA IS NOT LINKED TO AN INDIVIDUAL&#8217;S
 INFORMATION AND THE APP DOES NOT COLLECT ANY PERSONALLY IDENTIFIABLE
 INFORMATION. THIS COLLECTION
-FOLLOWS CDC&#8217;S PRIVACY POLICY, WHICH MAY BE VIEWED AT: <a href="http://www.cdc.gov/privacy.html" sref="external" target="_blank">http://www.cdc.gov/privacy.html</a>.</p>
+FOLLOWS CDC&#8217;S PRIVACY POLICY, WHICH MAY BE VIEWED AT: <a href="http://www.cdc.gov/privacy.html" ref="external" target="_blank">http://www.cdc.gov/privacy.html</a>.</p>
 
 <p>USE OF TRADE
 NAMES, COMMERICAL SOURCES OR PRIVATE ORGANIZATIONS IS FOR IDENTIFICATION ONLY
@@ -171,14 +172,12 @@ to the Application or your possession and/or use of the Application.
   
   
   <div data-role="footer" data-position="fixed">		
-	<div data-role="navbar" data-iconpos="left" >
-		<ul>
-         <li><a href="../menu.html" rel="external"></a></li>
-			 <li><a href="../menu.html" rel="external"></a></li>
-            <li><a href="../menu.html" rel="external" data-icon="check" >I Agree</a></li>
-          
+	<div data-role="navbar" class="eula_footer" data-iconpos="left">
+		
+            <a href="../menu.html" rel="external" data-theme="m" data-icon="check" class="ui-btn-right">I Agree</a>
+           
 			
-		</ul>
+		
 	</div><!-- /navbar -->
 </div><!-- /footer -->
   
@@ -188,4 +187,5 @@ to the Application or your possession and/or use of the Application.
 
 
 </body>
+
 </html>

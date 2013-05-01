@@ -38,17 +38,17 @@ def write_terms_common_head(f, title):
 
     f.write('''</title>
 
-        <link href="../jquery-mobile/jquery.mobile.theme-1.2.0.min.css" rel="stylesheet" type="text/css"/>
+        <link href="../jquery-mobile/jquery.mobile.theme-1.3.1.min.css" rel="stylesheet" type="text/css"/>
         <link href="../jquery-mobile/jquery.mobile.swatch.f.css" rel="stylesheet" type="text/css"/>
         <link href="../jquery-mobile/jquery.mobile.swatch.k.css" rel="stylesheet" type="text/css"/>
         <link href="../assets/css/custom_arrow.css" rel="stylesheet" type="text/css"/>
-        <link href="../jquery-mobile/jquery.mobile.structure-1.2.0.min.css" rel="stylesheet" type="text/css"/>
+        <link href="../jquery-mobile/jquery.mobile.structure-1.3.1.min.css" rel="stylesheet" type="text/css"/>
         <link href="../assets/css/full.css" rel="stylesheet" type="text/css"/>
         <link href="../assets/css/recreated_tables.css" rel="stylesheet" type="text/css"/>
-        <script src="../jquery-mobile/jquery-1.8.2.min.js" type="text/javascript"></script>
+        <script src="../jquery-mobile/jquery-1.9.1.min.js" type="text/javascript"></script>
         <script src="../jquery-customization.js" type="text/javascript"></script>
-        <script src="../jquery-mobile/jquery.mobile-1.2.0.min.js" type="text/javascript"></script>
-        <script src="../cordova-2.2.0.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../jquery-mobile/jquery.mobile-1.3.1.min.js" type="text/javascript"></script>
+        <script src="../cordova-2.6.0.js" type="text/javascript" charset="utf-8"></script>
         <script src="../assets/js/metrics.js" type="text/javascript" charset="utf-8"></script>
 
     </head>''')
@@ -100,7 +100,7 @@ def write_terms_breadcrumbs(html_file, headingId):
             html_file.write(get_heading_title(headingId))
 
         html_file.write('''
-            </div>   <!-- end of terms listview breadcrumbs -->
+            </div>
             </br>''')
 
 
@@ -141,7 +141,7 @@ def write_terms_listview_breadcrumbs(html_file, headingId):
         html_file.write(get_heading_title(headingId))
 
         html_file.write('''
-            </div>   <!-- end of terms listview breadcrumbs -->
+            </div>
             </br>''')
 
 
@@ -149,29 +149,28 @@ def write_terms_page_body_start(f, headingId):
     global headingsStore
     f.write('''
     <body>
-
-        <!-- Start of page -->
         <div data-role="page" id="''')
 
-    pageId = "heading_page_%s" % headingId
+    pageId = "terms%s" % headingId
     f.write(pageId)
 
     f.write('''" data-theme="d">
-            <div data-role="header" data-id="terms-header" data-theme="k" data-position="fixed">
-                <a href="''')
-    f.write(get_heading_parent_listview_link(headingId))
-    f.write('''" data-role="button" data-iconshadow="false" data-corners="false" data-theme="reset" data-transition="fade" class="back_button" role="button" aria-label="back"></a>''')
+            <div data-role="header" data-id="terms-header" data-theme="k" data-position="fixed">''')
+    # no back button or breadcrumbs since only one page
+    #            <a href="''')
+    #f.write(get_heading_parent_listview_link(headingId))
+    #f.write('''" data-role="button" data-iconshadow="false" data-corners="false" data-theme="reset" data-transition="fade" class="back_button" role="button" aria-label="back"></a>''')
     f.write('''
                 <h1>Terms and Abbreviations</h1>
 	            <a href="../menu.html"  rel="external" data-role="button" data-theme="reset" data-transition="fade" data-iconshadow="false" data-corners="false" class="menu_button ui-btn-right" role="button" aria-label="main menu"></a>''')
     #print headingsStore[headingId]
 
     f.write('''
-            </div>  <!-- end of header div -->
-
+            </div>
             <div data-role="content">''')
 
-    write_terms_breadcrumbs(f, headingId)
+    # no breadcrumbs needed since only one page
+    # write_terms_breadcrumbs(f, headingId)
 
 
 def write_terms_page_body_end(f, headingId):
@@ -180,18 +179,20 @@ def write_terms_page_body_end(f, headingId):
             </div>
             <script type="text/javascript">
 
-                $('div').live('pageshow', function (event, ui) {
-                    document.addEventListener("deviceready", function(){
-                        trackTermsPageView("''')
-    metrics_string = "%s" % headingId
+                $('#''')
+    pageId = "terms%s" % headingId
 
-    f.write(metrics_string)
-    f.write('''");
-                                                },true);
-                });
+    f.write(pageId)
+
+    f.write("""').on('pageshow', function (event, ui) {
+                    document.addEventListener("deviceready", function(){
+                    trackTermsPageView(""")
+    f.write("%s" % headingId)
+    f.write(''');
+                },true);
+            });
             </script>
         </div>
-        <!-- end of terms heading page -->
     </body>
 </html>
 
@@ -619,9 +620,9 @@ def create_heading_map(fl):
     for headingId in headingsStore.keys():
         if heading_has_text(headingId):
             write_heading_content(headingId)
-        if heading_has_children(headingId):
-            write_children_listview(headingId)
-            # print "Parent ID of", parentHeadingId, "has children ", childHeadings
+        # no list view need since only one page of terms
+        # if heading_has_children(headingId):
+            # write_children_listview(headingId)
 
 
 def initDirs():

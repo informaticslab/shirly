@@ -58,20 +58,18 @@ def write_guidelines_common_head(f, title):
     f.write(title)
 
     f.write('''</title>
-
-        <link href="../jquery-mobile/jquery.mobile.theme-1.2.0.min.css" rel="stylesheet" type="text/css"/>
+        <link href="../jquery-mobile/jquery.mobile.theme-1.3.1.min.css" rel="stylesheet" type="text/css"/>
         <link href="../jquery-mobile/jquery.mobile.swatch.f.css" rel="stylesheet" type="text/css"/>
         <link href="../jquery-mobile/jquery.mobile.swatch.j.css" rel="stylesheet" type="text/css"/>
         <link href="../assets/css/custom_arrow.css" rel="stylesheet" type="text/css"/>
-        <link href="../jquery-mobile/jquery.mobile.structure-1.2.0.min.css" rel="stylesheet" type="text/css"/>
+        <link href="../jquery-mobile/jquery.mobile.structure-1.3.1.min.css" rel="stylesheet" type="text/css"/>
         <link href="../assets/css/full.css" rel="stylesheet" type="text/css"/>
         <link href="../assets/css/recreated_tables.css" rel="stylesheet" type="text/css"/>
-        <script src="../jquery-mobile/jquery-1.8.2.min.js" type="text/javascript"></script>
+        <script src="../jquery-mobile/jquery-1.9.1.min.js" type="text/javascript"></script>
         <script src="../jquery-customization.js" type="text/javascript"></script>
-        <script src="../jquery-mobile/jquery.mobile-1.2.0.min.js" type="text/javascript"></script>
-        <script src="../cordova-2.2.0.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../jquery-mobile/jquery.mobile-1.3.1.min.js" type="text/javascript"></script>
         <script src="../assets/js/metrics.js" type="text/javascript" charset="utf-8"></script>
-
+        <script src="../cordova-2.6.0.js" type="text/javascript" charset="utf-8"></script>
     </head>''')
 
 #endregion
@@ -121,7 +119,7 @@ def write_guidelines_breadcrumbs(html_file, headingId):
             html_file.write(get_heading_title(headingId))
 
         html_file.write('''
-            </div>   <!-- end of guidelines listview breadcrumbs -->
+            </div>
             </br>''')
 
 
@@ -162,19 +160,18 @@ def write_guidelines_listview_breadcrumbs(html_file, headingId):
         html_file.write(get_heading_title(headingId))
 
         html_file.write('''
-            </div>   <!-- end of guidelines listview breadcrumbs -->
+            </div>
             </br>''')
 
 
 def write_guidelines_page_body_start(f, headingId):
     global headingsStore
     f.write('''
-    <body>
-
+    <body onload="onLoad()">
         <!-- Start of page -->
         <div data-role="page" id="''')
 
-    pageId = "heading_page_%s" % headingId
+    pageId = "g%s" % headingId
     f.write(pageId)
 
     f.write('''" data-theme="d">
@@ -188,8 +185,7 @@ def write_guidelines_page_body_start(f, headingId):
     #print headingsStore[headingId]
 
     f.write('''
-            </div>  <!-- end of header div -->
-
+            </div>
             <div data-role="content">''')
 
     write_guidelines_breadcrumbs(f, headingId)
@@ -197,17 +193,21 @@ def write_guidelines_page_body_start(f, headingId):
 
 def write_guidelines_page_body_end(f, headingId):
 
+
     f.write('''
             </div>
             <script type="text/javascript">
+                $('#''')
+    pageId = "g%s" % headingId
+    f.write(pageId)
 
-                $('div').live('pageshow', function (event, ui) {
+    f.write("""').on('pageshow', function (event, ui) {
                     document.addEventListener("deviceready", function(){
-                        trackFullGuidelinesPageView("''')
+                        trackFullGuidelinesPageView('""")
     metrics_string = "%s" % headingId
 
     f.write(metrics_string)
-    f.write('''");
+    f.write("""');
                                                 },true);
                 });
             </script>
@@ -216,7 +216,7 @@ def write_guidelines_page_body_end(f, headingId):
     </body>
 </html>
 
-    ''')
+""")
 
 
 def get_heading_parent(headingId):
@@ -458,12 +458,10 @@ def write_children_listview_body(f, headingId):
 
     f.write('''
     <body>
-        <!-- Start of listview page -->
         <div data-role="page" id="''')
 
     f.write(str(headingId))
     f.write('''" data-theme="d">
-
   	        <div data-role="header" data-id="guidelines-header" data-theme="j" data-position="fixed">''')
 
     if get_heading_level(headingId) > 0:
@@ -511,9 +509,9 @@ def write_children_listview_body(f, headingId):
 
     # write link to parent list view
     f.write('''
-                </ul> <!-- end of listview -->
-            </div> <!-- end of content div -->
-        </div> <!-- end of page div -->
+                </ul>
+            </div>
+        </div>
     </body>
 </html>
 
@@ -772,8 +770,6 @@ class RegimenTableData():
         self.tableId = self.doc + '-' + self.page + '-' + self.column + '-' + self.table
     def writeToFile(self,tf):
         tf.write('''
-
-        <!--- Regimens Table below is generated from Python script.  --->
         <div id="table">
             <div id="regimen_header">''')
         tf.write(self.header)
@@ -937,15 +933,15 @@ class Condition():
         self.children = []
         self.hasChildren = False
         self.regimens =[]
-        self.pageId = 'cond-' + str(id)
-        self.regimensPageId = self.pageId + '-regimens'
+        self.pageId = 'c' + str(id)
+        self.regimensPageId = self.pageId + '-r'
         self.regimensPage = self.regimensPageId + '.html'
         self.hasRegimens = False
         self.dxtx = []
-        self.dxtxPageId = self.pageId + '-dxtx'
+        self.dxtxPageId = self.pageId + '-t'
         self.dxtxPage = self.dxtxPageId + '.html'
         self.hasDxTx = False
-        self.childrenListViewPageId = self.pageId + '-children-lv'
+        self.childrenListViewPageId = self.pageId + '-clv'
         self.childrenListViewPage = self.childrenListViewPageId  + '.html'
 
     def setParent(self, parentId):
@@ -1021,17 +1017,17 @@ class Condition():
         html_file.write(str(self.id))
         html_file.write('''</title>
 
-        <link href="../jquery-mobile/jquery.mobile.theme-1.2.0.min.css" rel="stylesheet" type="text/css"/>
+        <link href="../jquery-mobile/jquery.mobile.theme-1.3.1.min.css" rel="stylesheet" type="text/css"/>
         <link href="../jquery-mobile/jquery.mobile.swatch.f.css" rel="stylesheet" type="text/css"/>
         <link href="../assets/css/custom_arrow.css" rel="stylesheet" type="text/css"/>
-        <link href="../jquery-mobile/jquery.mobile.structure-1.2.0.min.css" rel="stylesheet" type="text/css"/>
+        <link href="../jquery-mobile/jquery.mobile.structure-1.3.1.min.css" rel="stylesheet" type="text/css"/>
         <link href="../assets/css/treatments.css" rel="stylesheet" type="text/css"/>
         <link href="../assets/css/recreated_tables.css" rel="stylesheet" type="text/css"/>
-        <script src="../jquery-mobile/jquery-1.8.2.min.js" type="text/javascript"></script>
+        <script src="../jquery-mobile/jquery-1.9.1.min.js" type="text/javascript"></script>
         <script src="../jquery-customization.js" type="text/javascript"></script>
-        <script src="../jquery-mobile/jquery.mobile-1.2.0.min.js" type="text/javascript"></script>
-        <script src="../cordova-2.2.0.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../jquery-mobile/jquery.mobile-1.3.1.min.js" type="text/javascript"></script>
         <script src="../assets/js/metrics.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../cordova-2.6.0.js" type="text/javascript" charset="utf-8"></script>
 
     </head>''')
 
@@ -1046,28 +1042,26 @@ class Condition():
         html_file.write(str(self.id))
         html_file.write('''</title>
 
-        <link href="../jquery-mobile/jquery.mobile.theme-1.2.0.min.css" rel="stylesheet" type="text/css"/>
+        <link href="../jquery-mobile/jquery.mobile.theme-1.3.1.min.css" rel="stylesheet" type="text/css"/>
         <link href="../jquery-mobile/jquery.mobile.swatch.f.css" rel="stylesheet" type="text/css"/>
         <link href="../assets/css/custom_arrow.css" rel="stylesheet" type="text/css"/>
-        <link href="../jquery-mobile/jquery.mobile.structure-1.2.0.min.css" rel="stylesheet" type="text/css"/>
+        <link href="../jquery-mobile/jquery.mobile.structure-1.3.1.min.css" rel="stylesheet" type="text/css"/>
         <link href="../assets/css/more_info.css" rel="stylesheet" type="text/css"/>
 
-        <script src="../jquery-mobile/jquery-1.8.2.min.js" type="text/javascript"></script>
+        <script src="../jquery-mobile/jquery-1.9.1.min.js" type="text/javascript"></script>
         <script src="../jquery-customization.js" type="text/javascript"></script>
-        <script src="../jquery-mobile/jquery.mobile-1.2.0.min.js" type="text/javascript"></script>
-        <script src="../cordova-2.2.0.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../jquery-mobile/jquery.mobile-1.3.1.min.js" type="text/javascript"></script>
+        <script src="../cordova-2.6.0.js" type="text/javascript" charset="utf-8"></script>
 
 
     </head>''')
 
     def write_html_page_header(self, html_file, pageId):
         html_file.write('''
-    </body>
-        <!-- Start of condition page -->
+    <body>
         <div data-role="page" id="''')
         html_file.write(pageId)
         html_file.write('''" data-theme="d">
-
             <div data-id="quickpick-header" data-role="header" data-theme="f" data-position="fixed">''')
 
         if self.id != 0:
@@ -1080,32 +1074,7 @@ class Condition():
         html_file.write('''
                 <h1>Condition Quick Pick</h1>
                 <a href="../menu.html" rel="external" data-role="button" data-theme="reset" data-iconshadow="false" data-corners="false" class="menu_button ui-btn-right" role="button" aria-label="main menu"></a>
-            </div>  <!-- end of quickpick-header div --> ''')
-
-
-    def old_write_html_page_header(self, html_file):
-        html_file.write('''
-        <!-- Start of condition page -->
-        <div data-role="page" id="menu" data-theme="d">
-
-            <div data-id="quickpick-header" data-role="header" data-theme="f" data-position="fixed">
-                <a href="../menu.html" rel="external" data-role="button" data-theme="reset" data-iconshadow="false" data-corners="false" class="menu_button ui-btn-right" role="button" aria-label="main menu"></a>
-
-                <h1>Condition Quick Pick</h1>''')
-
-        # do not write navbar for root condition
-        if self.id != 0:
-            html_file.write('''
-                <div data-role="navbar" data-theme="d" >
-                    <div id="nav">
-                        <a href="''')
-            html_file.write(self.parent.childrenListViewPage)
-            html_file.write('''" data-role="button" class="back_button">< A-Z</a><span class="toptitle">''')
-            html_file.write(self.text)
-            html_file.write('''</span>
-                    </div> <!-- end of nav div -->
-                </div>  <!-- end of navbar div -->
-            </div>  <!-- end of quickpick-header div --> ''')
+            </div>''')
 
 
     def write_html_breadcrumbs(self, html_file):
@@ -1187,24 +1156,25 @@ class Condition():
             html_file.write('#" class="ui-disabled"')
         html_file.write(''' id="info_active" data-icon="custom">More Info</a></li>
                     </ul>
-                </div><!-- navbar -->
-            </div><!-- footer -->
-        </div><!-- end of content -->
+                </div>
+            </div>
+        </div>
 
         <script type="text/javascript">
 
-            $('#''')
+                $('#''')
         html_file.write(self.regimensPageId)
-        html_file.write('''').live('pageshow', function (event, ui) {
-                document.addEventListener("deviceready", function(){
-                    trackConditionQuickPickTreatmentPageView(''')
 
+        html_file.write("""').on('pageshow', function (event, ui) {
+                    document.addEventListener("deviceready", function(){
+                    trackConditionQuickPickTreatmentPageView(""")
         html_file.write("%s" % self.id)
         html_file.write(''');
-                                                },true);
-                });
+                },true);
+            });
+
         </script>
-    </div><!-- end of treatments page -->
+    </div>
   </body>
 </html>
 ''')
@@ -1225,28 +1195,26 @@ class Condition():
         html_file.write(''' id="treat_active" data-icon="custom">Treatments</a></li>
                         <li><a href="#" id="info_active"  class="ui-btn-active ui-state-persist" data-icon="custom">More Info</a></li>
                     </ul>
-                </div><!-- /navbar -->
-            </div><!-- /footer -->
+                </div>
+            </div>
 
-        </div><!-- end of content -->
-
+        </div>
         <script type="text/javascript">
 
-            $('#''')
+                $('#''')
         html_file.write(self.dxtxPageId)
 
-        html_file.write('''').live('pageshow', function (event, ui) {
-                document.addEventListener("deviceready", function(){
-                    trackConditionQuickPickDxTxPageView(''')
-
+        html_file.write("""').on('pageshow', function (event, ui) {
+                    document.addEventListener("deviceready", function(){
+                    trackConditionQuickPickDxTxPageView(""")
         html_file.write("%s" % self.id)
         html_file.write(''');
-                                                },true);
-                });
+                },true);
+            });
+
         </script>
 
-    </div><!-- end of treatments page -->
-
+    </div>
 </body>
 </html>
 ''')
@@ -1274,8 +1242,8 @@ class Condition():
 
         html_file.write('''
                 </ul>
-            </div>   <!-- end of content div -->
-        </div>  <!-- end of page div -->
+            </div>
+        </div>
     </body>
 </html>
 ''')

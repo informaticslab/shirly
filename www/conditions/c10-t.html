@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no" />
+        <title>10</title>
+
+        <link href="../jquery-mobile/jquery.mobile.theme-1.3.1.min.css" rel="stylesheet" type="text/css"/>
+        <link href="../jquery-mobile/jquery.mobile.swatch.f.css" rel="stylesheet" type="text/css"/>
+        <link href="../assets/css/custom_arrow.css" rel="stylesheet" type="text/css"/>
+        <link href="../jquery-mobile/jquery.mobile.structure-1.3.1.min.css" rel="stylesheet" type="text/css"/>
+        <link href="../assets/css/treatments.css" rel="stylesheet" type="text/css"/>
+        <link href="../assets/css/recreated_tables.css" rel="stylesheet" type="text/css"/>
+        <script src="../jquery-mobile/jquery-1.9.1.min.js" type="text/javascript"></script>
+        <script src="../jquery-customization.js" type="text/javascript"></script>
+        <script src="../jquery-mobile/jquery.mobile-1.3.1.min.js" type="text/javascript"></script>
+        <script src="../assets/js/metrics.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../cordova-2.6.0.js" type="text/javascript" charset="utf-8"></script>
+
+    </head>
+    <body>
+        <div data-role="page" id="c10-t" data-theme="d">
+            <div data-id="quickpick-header" data-role="header" data-theme="f" data-position="fixed">
+                <a href="c8-clv.html" data-role="button" data-theme="reset" data-iconshadow="false" data-corners="false" class="back_button" role="button" aria-label="back"></a>
+            
+                <h1>Condition Quick Pick</h1>
+                <a href="../menu.html" rel="external" data-role="button" data-theme="reset" data-iconshadow="false" data-corners="false" class="menu_button ui-btn-right" role="button" aria-label="main menu"></a>
+            </div>
+            <div data-role="content" data-theme="d" >
+                <div id=quickpick_breadcrumbs>
+                
+                        <a href="c0-clv.html" >Condition Quick Pick</a><span class="carrot"> > </span>
+                        <a href="c8-clv.html" >Chlamydia</a><span class="carrot"> > </span>In Pregnancy
+                </div>   <!-- end of quick pick breadcrumbs -->
+                </br><h4 class="sgc-1" id="sigil_toc_id_208">
+ Pregnancy
+</h4>
+<p>
+ Doxycycline, ofloxacin, and levofloxacin are contraindicated in pregnant women. However, clinical experience and published studies suggest that azithromycin is safe and effective (289&ndash;291). Repeat testing to document chlamydial eradication (preferably by NAAT) 3 weeks after completion of therapy with the following regimens is recommended for all pregnant women to ensure therapeutic cure, considering the severe sequelae that might occur in mothers and neonates if the infection persists. Women aged &lt;25 years and those at increased risk for chlamydia (i.e., women who have a new or more than one sex partner) also should be retested during the third trimester to prevent maternal postnatal complications and chlamydial infection in the infant (81). Pregnant women diagnosed with a chlamydial infection during the first trimester should not only receive a test to document chlamydial eradication, but be retested 3 months after treatment.
+</p>
+<p>
+ <br/>
+</p>
+<p>
+ The frequent gastrointestinal side effects associated with erythromycin can result in noncompliance with the alternative regimens. Although erythromycin estolate is contraindicated during pregnancy because of drug-related hepatotoxicity, the lower dose 14-day erythromycin regimens can be considered if gastrointestinal tolerance is a concern.
+</p>
+
+            <div data-role="footer" data-id="regimens-footer" data-position="fixed" class="tab_treatment">
+                <div data-role="navbar" class="tab_icons" data-iconpos="left">
+                    <ul>
+                        <li><a href="c10-r.html" id="treat_active" data-icon="custom">Treatments</a></li>
+                        <li><a href="#" id="info_active"  class="ui-btn-active ui-state-persist" data-icon="custom">More Info</a></li>
+                    </ul>
+                </div>
+            </div>
+
+        </div>
+        <script type="text/javascript">
+
+                $('#c10-t').on('pageshow', function (event, ui) {
+                    document.addEventListener("deviceready", function(){
+                    trackConditionQuickPickDxTxPageView(10);
+                },true);
+            });
+
+        </script>
+
+    </div>
+</body>
+</html>

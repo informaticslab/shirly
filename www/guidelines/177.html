@@ -4,38 +4,34 @@
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no" />
         <title>Full STD Tx Guidelines</title>
-
-        <link href="../jquery-mobile/jquery.mobile.theme-1.2.0.min.css" rel="stylesheet" type="text/css"/>
+        <link href="../jquery-mobile/jquery.mobile.theme-1.3.1.min.css" rel="stylesheet" type="text/css"/>
         <link href="../jquery-mobile/jquery.mobile.swatch.f.css" rel="stylesheet" type="text/css"/>
         <link href="../jquery-mobile/jquery.mobile.swatch.j.css" rel="stylesheet" type="text/css"/>
         <link href="../assets/css/custom_arrow.css" rel="stylesheet" type="text/css"/>
-        <link href="../jquery-mobile/jquery.mobile.structure-1.2.0.min.css" rel="stylesheet" type="text/css"/>
+        <link href="../jquery-mobile/jquery.mobile.structure-1.3.1.min.css" rel="stylesheet" type="text/css"/>
         <link href="../assets/css/full.css" rel="stylesheet" type="text/css"/>
         <link href="../assets/css/recreated_tables.css" rel="stylesheet" type="text/css"/>
-        <script src="../jquery-mobile/jquery-1.8.2.min.js" type="text/javascript"></script>
+        <script src="../jquery-mobile/jquery-1.9.1.min.js" type="text/javascript"></script>
         <script src="../jquery-customization.js" type="text/javascript"></script>
-        <script src="../jquery-mobile/jquery.mobile-1.2.0.min.js" type="text/javascript"></script>
-        <script src="../cordova-2.2.0.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../jquery-mobile/jquery.mobile-1.3.1.min.js" type="text/javascript"></script>
         <script src="../assets/js/metrics.js" type="text/javascript" charset="utf-8"></script>
-
+        <script src="../cordova-2.6.0.js" type="text/javascript" charset="utf-8"></script>
     </head>
-    <body>
-
+    <body onload="onLoad()">
         <!-- Start of page -->
-        <div data-role="page" id="heading_page_177" data-theme="d">
+        <div data-role="page" id="g177" data-theme="d">
             <div data-role="header" data-id="guidelines-header" data-theme="j" data-position="fixed">
                 <a href="lv-175.html" data-role="button" data-iconshadow="false" data-corners="false" data-theme="reset" data-transition="fade" class="back_button" role="button" aria-label="back"></a>
                 <h1>Full STD Tx Guidelines</h1>
 	            <a href="../menu.html"  rel="external" data-role="button" data-theme="reset" data-transition="fade" data-iconshadow="false" data-corners="false" class="menu_button ui-btn-right" role="button" aria-label="main menu"></a>
-            </div>  <!-- end of header div -->
-
+            </div>
             <div data-role="content">
             <div id=guidelines_breadcrumbs>
             
                     <a href="lv-173.html" >Full Guidelines</a><span class="carrot"> > </span>
                     <a href="lv-175.html" >Management of Persons Who Have a History of Penicillin Allergy</a><span class="carrot"> > </span>
                     <a href="lv-175.html" >Penicillin Allergy Skin Testing</a><span class="carrot"> > </span>Epicutaneous (Prick) Tests
-            </div>   <!-- end of guidelines listview breadcrumbs -->
+            </div>
             </br><h3 id="sigil_toc_id_177">
  Epicutaneous (Prick) Tests
 </h3>
@@ -45,10 +41,9 @@
 
             </div>
             <script type="text/javascript">
-
-                $('div').live('pageshow', function (event, ui) {
+                $('#g177').on('pageshow', function (event, ui) {
                     document.addEventListener("deviceready", function(){
-                        trackFullGuidelinesPageView("177");
+                        trackFullGuidelinesPageView('177');
                                                 },true);
                 });
             </script>
@@ -57,4 +52,3 @@
     </body>
 </html>
 
-    

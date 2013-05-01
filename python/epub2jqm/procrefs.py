@@ -38,17 +38,17 @@ def write_references_common_head(f, title):
 
     f.write('''</title>
 
-        <link href="../jquery-mobile/jquery.mobile.theme-1.2.0.min.css" rel="stylesheet" type="text/css"/>
+        <link href="../jquery-mobile/jquery.mobile.theme-1.3.1.min.css" rel="stylesheet" type="text/css"/>
         <link href="../jquery-mobile/jquery.mobile.swatch.f.css" rel="stylesheet" type="text/css"/>
         <link href="../jquery-mobile/jquery.mobile.swatch.l.css" rel="stylesheet" type="text/css"/>
         <link href="../assets/css/custom_arrow.css" rel="stylesheet" type="text/css"/>
-        <link href="../jquery-mobile/jquery.mobile.structure-1.2.0.min.css" rel="stylesheet" type="text/css"/>
+        <link href="../jquery-mobile/jquery.mobile.structure-1.3.1.min.css" rel="stylesheet" type="text/css"/>
         <link href="../assets/css/full.css" rel="stylesheet" type="text/css"/>
         <link href="../assets/css/recreated_tables.css" rel="stylesheet" type="text/css"/>
-        <script src="../jquery-mobile/jquery-1.8.2.min.js" type="text/javascript"></script>
+        <script src="../jquery-mobile/jquery-1.9.1.min.js" type="text/javascript"></script>
         <script src="../jquery-customization.js" type="text/javascript"></script>
-        <script src="../jquery-mobile/jquery.mobile-1.2.0.min.js" type="text/javascript"></script>
-        <script src="../cordova-2.2.0.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../jquery-mobile/jquery.mobile-1.3.1.min.js" type="text/javascript"></script>
+        <script src="../cordova-2.6.0.js" type="text/javascript" charset="utf-8"></script>
         <script src="../assets/js/metrics.js" type="text/javascript" charset="utf-8"></script>
 
     </head>''')
@@ -153,7 +153,7 @@ def write_references_page_body_start(f, headingId):
         <!-- Start of page -->
         <div data-role="page" id="''')
 
-    pageId = "heading_page_%s" % headingId
+    pageId = "r%s" % headingId
     f.write(pageId)
 
     f.write('''" data-theme="d">
@@ -178,20 +178,24 @@ def write_references_page_body_end(f, headingId):
 
     f.write('''
             </div>
+
             <script type="text/javascript">
 
-                $('div').live('pageshow', function (event, ui) {
-                    document.addEventListener("deviceready", function(){
-                        trackReferencesPageView("''')
-    metrics_string = "%s" % headingId
+                $('#''')
+    pageId = "r%s" % headingId
 
-    f.write(metrics_string)
-    f.write('''");
-                                                },true);
-                });
+    f.write(pageId)
+
+    f.write("""').on('pageshow', function (event, ui) {
+                    document.addEventListener("deviceready", function(){
+                    trackReferencesPageView(""")
+    f.write("%s" % headingId)
+    f.write(''');
+                },true);
+            });
+
             </script>
         </div>
-        <!-- end of references heading page -->
     </body>
 </html>
 

@@ -93,6 +93,7 @@
 <script type="text/javascript" charset="utf-8">
         
         function onLoad() {
+
             document.addEventListener("deviceready", onDeviceReady, false);
         }
         
@@ -100,6 +101,22 @@
         function onDeviceReady() {
             trackMainMenuPageView();
 
+            var lastVersionKey = 'lastEulaAgreeVersion';
+            var lastVersionVal;
+            var currVersion = appData.version + "." + appData.build;
+            if(typeof(window.localStorage) != 'undefined'){
+                lastVersionVal = window.localStorage.getItem(lastVersionKey);
+            }
+            else {
+                throw "window.localStorage, not defineds";
+            }
+            console.log("Current version = " + currVersion);
+            
+            if (currVersion != lastVersionVal) {
+                window.localStorage.setItem(lastVersionKey, currVersion);
+                window.location = "page/eula.html";
+            }
+            
         }
     
 </script>

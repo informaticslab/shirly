@@ -174,7 +174,7 @@ to the Application or your possession and/or use of the Application.
   <div data-role="footer" data-position="fixed">		
 	<div data-role="navbar" class="eula_footer" data-iconpos="left">
 		
-            <a href="../menu.html" rel="external" data-theme="m" data-icon="check" class="ui-btn-right">I Agree</a>
+            <a href="../menu.html" rel="external" data-theme="m" data-icon="check" class="ui-btn-right" onclick="onClick()">I Agree</a>
            
 			
 		
@@ -193,6 +193,11 @@ to the Application or your possession and/or use of the Application.
             // Now safe to use the Cordova API
             trackEulaPageView();
         }
+        
+        function onClick() {
+            window.location = document.referrer;
+        }
+        
         
     </script>
 </body>

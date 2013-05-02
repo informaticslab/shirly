@@ -36,10 +36,10 @@
        <a href="http://www.cdc.gov/std/treatment" rel="external" target="_blank"><div class="about_icon"><img src="../assets/img/about_icon_page.png"/></div></a>
        
        <div class="about_text"> 
- <span style="font-size:15px; position:relative; top:5px;"><strong>Version: </strong>1.0.3
-<br/><strong>Build: </strong>3 <br/>
-<strong>Build Date: </strong>5/1/2013 <br/>
-<strong>STD Data Date: </strong>8/9/2012</span><br/>
+ <span style="font-size:15px; position:relative; top:5px;"><strong>Version: </strong><span id="appVersionNumber"></span> </br>
+<strong>Build: </strong><span id="appBuildNumber"></span> <br/>
+<strong>Build Date: </strong><span id="appBuildDate"></span> <br/>
+<strong>STD Data Date: </strong><span id="stdDataDate"></span></span><br/>
 <br/>
  </div><br/><br/><br/><br/>
 <div id="about_info">
@@ -69,6 +69,10 @@
     
     function onLoad() {
         document.addEventListener("deviceready", onDeviceReady, false);
+        document.getElementById("appVersionNumber").innerHTML = appData.version;
+        document.getElementById("appBuildNumber").innerHTML = appData.build;
+        document.getElementById("appBuildDate").innerHTML = appData.buildDate;
+        document.getElementById("stdDataDate").innerHTML = appData.stdDataDate;
     }
     
     // Cordova is loaded and it is now safe to make calls Cordova methods

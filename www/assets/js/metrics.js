@@ -1,9 +1,11 @@
+var appData = { "version":"1.0.4", "build":"3", "buildDate":"5/1/2013 ", "stdDataDate":"8/9/2012"};
+
 function trackPageView (section, page)
 {
         // console.log("In trackPageView");
 
 		// these first vars change most often depending on version and if debug is true
-		var appVersion = "1.0.3.3";
+		var appVersion = appData.version + "." + appData.build;
 		var debug = true;
 		var debugLocal = true;
 		var cdcServer = "http://tools.cdc.gov/metrics.aspx?";

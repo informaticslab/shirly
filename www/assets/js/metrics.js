@@ -1,4 +1,4 @@
-var appData = { "version":"1.0.4", "build":"17", "buildDate":"5/1/2013 ", "stdDataDate":"8/9/2012"};
+var appData = { "version":"1.0.5", "build":"1", "buildDate":"5/3/2013 ", "stdDataDate":"8/9/2012"};
 
 function trackPageView (section, page)
 {
@@ -6,8 +6,8 @@ function trackPageView (section, page)
 
 		// these first vars change most often depending on version and if debug is true
 		var appVersion = appData.version + "." + appData.build;
-		var debug = true;
-		var debugLocal = true;
+		var debug = false;
+		var debugLocal = false;
 		var cdcServer = "http://tools.cdc.gov/metrics.aspx?";
 		var localServer = "http://192.168.0.101:8989/metrics?";
 
@@ -20,7 +20,7 @@ function trackPageView (section, page)
 		var deviceOsName = device.platform;
 		var deviceOsVers = device.version;
 		var deviceParams = "c54=" + deviceOsName + "&c55=" + deviceOsVers + "&c56=" + deviceModel;
-        console.log("deviceParams = " + deviceParams);
+        // console.log("deviceParams = " + deviceParams);
 		
 		// application info
 		var appInfoParams = "c53=" + appVersion;

@@ -102,7 +102,6 @@
             else {
                 throw "window.localStorage, not defineds";
             }
-            console.log("Current version = " + currVersion);
             
             if (currVersion != lastVersionVal) {
                 window.localStorage.setItem(lastVersionKey, currVersion);

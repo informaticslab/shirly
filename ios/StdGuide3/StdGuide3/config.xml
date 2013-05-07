@@ -14,7 +14,6 @@
     <preference name="HideKeyboardFormAccessoryBar" value="false" />
     <content src='menu.html' />
 	<plugins>
-		<plugin name="Debug Console" value="CDVDebugConsole"/>
 		<plugin name="Device" value="CDVDevice"/>
 		<plugin name="Logger" value="CDVLogger"/>
 		<plugin name="NetworkStatus" value="CDVConnection"/>

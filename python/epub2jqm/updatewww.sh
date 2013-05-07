@@ -1,6 +1,6 @@
 #!/bin/sh
 
-cp -r conditions/ ../../www/conditions
-cp -r page/headings/ ../../www/guidelines
-cp -r page/refs/headings/ ../../www/refs
-cp -r page/terms/headings/ ../../www/terms
+cp -r conditions/ ../../www/common/conditions
+cp -r page/headings/ ../../www/common/guidelines
+cp -r page/refs/headings/ ../../www/common/refs
+cp -r page/terms/headings/ ../../www/common/terms

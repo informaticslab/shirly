@@ -46,9 +46,9 @@ def write_references_common_head(f, title):
         <link href="../assets/css/full.css" rel="stylesheet" type="text/css"/>
         <link href="../assets/css/recreated_tables.css" rel="stylesheet" type="text/css"/>
         <script src="../jquery-mobile/jquery-1.9.1.min.js" type="text/javascript"></script>
-        <script src="../jquery-customization.js" type="text/javascript"></script>
+        <script src="../../jquery-customization.js" type="text/javascript"></script>
         <script src="../jquery-mobile/jquery.mobile-1.3.1.min.js" type="text/javascript"></script>
-        <script src="../cordova-2.6.0.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../../cordova-2.7.0.js" type="text/javascript" charset="utf-8"></script>
         <script src="../assets/js/metrics.js" type="text/javascript" charset="utf-8"></script>
 
     </head>''')

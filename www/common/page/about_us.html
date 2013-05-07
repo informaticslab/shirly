@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+
+    <title>About Us</title>
+
+    <link href="../jquery-mobile/jquery.mobile.theme-1.3.1.min.css" rel="stylesheet" type="text/css"/>
+    <link href="../jquery-mobile/jquery.mobile.swatch.about.css" rel="stylesheet" type="text/css"/>
+    <link href="../assets/css/about.css" rel="stylesheet" type="text/css"/> 
+       
+    <link href="../jquery-mobile/jquery.mobile.structure-1.3.1.min.css" rel="stylesheet" type="text/css"/>
+    
+	<style type="text/css">
+	.ui-page-pre-in {opacity: 0;}
+	.ui-header .ui-title { margin-left: 1em; margin-right: 1em; }
+	</style> 
+    
+<script src="../jquery-mobile/jquery-1.9.1.min.js" type="text/javascript"></script>
+<script src="../../jquery-customization.js" type="text/javascript"></script>
+<script src="../jquery-mobile/jquery.mobile-1.3.1.min.js" type="text/javascript"></script>
+<script src="../../cordova-2.7.0.js" type="text/javascript" charset="utf-8"></script>
+<script src="../assets/js/metrics.js" type="text/javascript" charset="utf-8"></script>
+   
+</head>
+<body onload="onLoad()">
+<div data-role="page" id="about" data-theme="d">
+  
+  	<div data-role="header" data-theme="i" data-position="fixed">
+	<a href="../menu.html" rel="external" data-role="button" data-theme="reset" data-iconshadow="false" data-corners="false" class="menu_button ui-btn-right"></a>
+    <h1>About Us</h1>
+  </div>
+ 
+  <div data-role="content">
+       <div class="about_icon"><img src="../assets/img/about_icon_page.png"/></div></a>
+       
+       <div class="about_text"> 
+ <span style="font-size:15px; position:relative; top:5px;"><strong>Version: </strong><span id="appVersionNumber"></span> </br>
+<strong>Build: </strong><span id="appBuildNumber"></span> <br/>
+<strong>Build Date: </strong><span id="appBuildDate"></span> <br/>
+<strong>STD Data Date: </strong><span id="stdDataDate"></span></span><br/>
+<br/>
+ </div><br/><br/><br/><br/>
+<div id="about_info">
+<span style="color:#000000; font-size:smaller; position:relative; top:1px;"><br/>View the User Agreement here: <a href="../page/eula.html" rel="external">STD Treatment Guide User Agreement.</a>
+<p>The STD Treatment (Tx) app serves as a quick reference guide for doctors and related parties on the identification of and treatment for sexually transmitted diseases (STDs).
+</p>
+<p>The app is a collaboration between CDC's Division of STD Prevention and the Public Health Surveillance and Informatics Program Office's Informatics Research & Development Activity. The information in this mobile application is based on the CDC’s 2010 Sexually Transmitted Diseases Treatment Guidelines (MMWR 2010;59(No. RR-12) and the 2012 MMWR Update to CDC's Sexually Transmitted Diseases Treatment Guidelines, 2010: Oral Cephalosporins No Longer a Recommended Treatment for Gonococcal Infections (MMWR 2012; 61 (31): 590-594).
+</p>
+<p>For comments and feedback, please email <a href="mailto:etools@cdc.gov">etools@cdc.gov</a>.
+</p>
+
+<p>For content-related questions, please visit the CDC site: <a href="http://www.cdc.gov/std'" rel="external" target="_blank" onclick="openLink('http://www.cdc.gov/std');">www.cdc.gov/std</a>.
+</p>
+
+<p>For questions regarding the application (design, new features, etc.), please contact the staff at <a href="mailto:InformaticsLab@cdc.gov">InformaticsLab@cdc.gov</a>.
+</p>
+
+<p>For more information on the Informatics R&D Lab visit: <a href="http://www.phiresearchlab.org" rel="external" target="_blank" onclick="openLink('http://www.phiresearchlab.org');">www.phiresearchlab.org</a>.
+</p>
+
+</span></div>
+
+</div>
+</div>
+
+<script type="text/javascript">
+    
+    function onLoad() {
+        document.addEventListener("deviceready", onDeviceReady, false);
+        document.getElementById("appVersionNumber").innerHTML = appData.version;
+        document.getElementById("appBuildNumber").innerHTML = appData.build;
+        document.getElementById("appBuildDate").innerHTML = appData.buildDate;
+        document.getElementById("stdDataDate").innerHTML = appData.stdDataDate;
+    }
+    
+    // Cordova is loaded and it is now safe to make calls Cordova methods
+    function onDeviceReady() {
+    // Now safe to use the Cordova API
+        trackAboutUsPageView();
+    }
+</script>
+</body>
+</html>

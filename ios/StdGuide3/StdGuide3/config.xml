@@ -12,7 +12,7 @@
     <preference name="KeyboardShrinksView" value="false" />
     <preference name="DisallowOverscroll" value="false" />
     <preference name="HideKeyboardFormAccessoryBar" value="false" />
-    <content src='menu.html' />
+    <content src='common/menu.html' />
 	<plugins>
 		<plugin name="Device" value="CDVDevice"/>
 		<plugin name="Logger" value="CDVLogger"/>

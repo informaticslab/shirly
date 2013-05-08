@@ -1,4 +1,4 @@
-var appData = { "version":"1.0.6", "build":"17", "buildDate":"5/7/2013 ", "stdDataDate":"8/9/2012"};
+var appData = { "version":"1.0.6", "build":"27", "buildDate":"5/7/2013 ", "stdDataDate":"8/9/2012"};
 
 function trackPageView (section, page)
 {
@@ -6,8 +6,8 @@ function trackPageView (section, page)
 
 		// these first vars change most often depending on version and if debug is true
 		var appVersion = appData.version + "." + appData.build;
-		var debug = false;
-		var debugLocal = false;
+		var debug = true;
+		var debugLocal = true;
 		var cdcServer = "http://tools.cdc.gov/metrics.aspx?";
 		var localServer = "http://192.168.0.101:8989/metrics?";
 

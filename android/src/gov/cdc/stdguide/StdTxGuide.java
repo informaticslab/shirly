@@ -1,16 +1,17 @@
-package org.cdc.stdguide;
+package gov.cdc.stdguide;
 
 import android.os.Bundle;
 import android.view.Menu;
 import org.apache.cordova.*;
+import gov.cdc.stdguide.R;
 
-public class MainActivity extends DroidGap {
+public class StdTxGuide extends DroidGap {
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        super.setIntegerProperty("splashscreen", R.drawable.splash);
-        super.loadUrl("file:///android_asset/www/menu.html", 4000);  
+        //super.setIntegerProperty("splashscreen", R.drawable.splash);
+        super.loadUrl(Config.getStartUrl());
     }
 
     @Override
@@ -19,3 +20,7 @@ public class MainActivity extends DroidGap {
         return true;
     }
 }
+
+
+
+

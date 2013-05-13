@@ -1,4 +1,4 @@
-var appData = { "version":"1.0.6", "build":"27", "buildDate":"5/7/2013 ", "stdDataDate":"8/9/2012"};
+var appData = { "version":"1.0.6", "build":"40", "buildDate":"5/13/2013 ", "stdDataDate":"8/9/2012"};
 
 function trackPageView (section, page)
 {
@@ -122,10 +122,37 @@ function trackEulaPageView(page)
     
 }
 
+function doesStringEndWith(myString, stringCheck)
+{
+    var foundIt = (myString.lastIndexOf(stringCheck) === myString.length - stringCheck.length) > 0;
+    return foundIt;
+}
 function openLink(newUrl)
 {
-    var ref = window.open(newUrl, '_blank', 'location=yes')
+
+    console.log("opening link...");
+	if (doesStringEndWith(newUrl, ".pdf")) {
+        console.log("opening PDF link...");
+   		openPdfLink(newUrl);
+	} else {
+        console.log("opening non-PDF link...");
+	    var ref = window.open(newUrl, '_blank', 'location=yes');
+	}
+
     return event.preventDefault();
     
 }
 
+function openPdfLink(newUrl)
+{
+	var devicePlatform = device.platform;
+	console.log("opening PDF at " + newUrl);
+	
+	if (devicePlatform === "Android") {
+		console.log("opening PDF on Android");
+    	var ref = window.open(newUrl, '_system', 'location=yes');
+    } else {
+		console.log("opening PDF on iOS");
+    	var ref = window.open(newUrl, '_blank', 'location=yes');  
+    }
+}

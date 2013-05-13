@@ -1,4 +1,4 @@
-var appData = { "version":"1.0.6", "build":"40", "buildDate":"5/13/2013 ", "stdDataDate":"8/9/2012"};
+var appData = { "version":"1.0.6", "build":"41", "buildDate":"5/13/2013 ", "stdDataDate":"8/9/2012"};
 
 function trackPageView (section, page)
 {

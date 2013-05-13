@@ -1,7 +1,9 @@
 android/bin/
 android/gen/
 android/builds/
+android/assets/www/common/
 ios/StdGuide.xcodeproj/
+ios/StdGuide3/www/common/
 python/epub2jqm/.idea/
 python/epub2jqm/page/
 python/epub2jqm/temp/

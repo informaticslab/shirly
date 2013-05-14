@@ -1,4 +1,4 @@
-var appData = { "version":"1.0.6", "build":"41", "buildDate":"5/13/2013 ", "stdDataDate":"8/9/2012"};
+var appData = { "version":"1.0.7", "build":"1", "buildDate":"5/14/2013 ", "stdDataDate":"8/9/2012"};
 
 function trackPageView (section, page)
 {
@@ -6,8 +6,8 @@ function trackPageView (section, page)
 
 		// these first vars change most often depending on version and if debug is true
 		var appVersion = appData.version + "." + appData.build;
-		var debug = true;
-		var debugLocal = true;
+		var debug = false;
+		var debugLocal = false;
 		var cdcServer = "http://tools.cdc.gov/metrics.aspx?";
 		var localServer = "http://192.168.0.101:8989/metrics?";
 
@@ -130,12 +130,12 @@ function doesStringEndWith(myString, stringCheck)
 function openLink(newUrl)
 {
 
-    console.log("opening link...");
+    // console.log("opening link...");
 	if (doesStringEndWith(newUrl, ".pdf")) {
-        console.log("opening PDF link...");
+        // console.log("opening PDF link...");
    		openPdfLink(newUrl);
 	} else {
-        console.log("opening non-PDF link...");
+        // console.log("opening non-PDF link...");
 	    var ref = window.open(newUrl, '_blank', 'location=yes');
 	}
 
@@ -146,13 +146,13 @@ function openLink(newUrl)
 function openPdfLink(newUrl)
 {
 	var devicePlatform = device.platform;
-	console.log("opening PDF at " + newUrl);
+	// console.log("opening PDF at " + newUrl);
 	
 	if (devicePlatform === "Android") {
-		console.log("opening PDF on Android");
+		// console.log("opening PDF on Android");
     	var ref = window.open(newUrl, '_system', 'location=yes');
     } else {
-		console.log("opening PDF on iOS");
+		// console.log("opening PDF on iOS");
     	var ref = window.open(newUrl, '_blank', 'location=yes');  
     }
 }

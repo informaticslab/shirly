@@ -10,6 +10,7 @@
 <link href="assets/css/about.css" rel="stylesheet" type="text/css"/> 
 <link href="assets/css/custom_arrow.css" rel="stylesheet" type="text/css"/>
 <link href="assets/css/full.css" rel="stylesheet" type="text/css"/>
+<link href="assets/css/eula.css" rel="stylesheet" type="text/css"/>
 <link href="assets/css/menu.css" rel="stylesheet" type="text/css"/>
 <link href="assets/css/pdf.css" rel="stylesheet" type="text/css"/> 
 <link href="assets/css/recreated_tables.css" rel="stylesheet" type="text/css"/>
@@ -38,7 +39,7 @@
 </head>
 
 
-<body onload="onLoad()">
+<body onload="onLoad()"> 
 
 <div data-role="page" id="main_menu" data-theme="n">
    <div data-role="header" data-theme="menu_head" data-position="fixed">
@@ -117,11 +118,9 @@
                 throw "window.localStorage, not defined";
             }
             
-            if (currVersion != lastVersionVal) {
+            if (currVersion != lastVersionVal) {            	
                 window.localStorage.setItem(lastVersionKey, currVersion);
-                //$.mobile.changePage( "page/eula.html", { transition: "slideup"} );
-                window.open("page/eula.html");
-                //window.location = "page/eula.html";
+                $.mobile.changePage( "page/eula.html");
             }
             
         }

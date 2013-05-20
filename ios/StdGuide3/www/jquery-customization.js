@@ -1,11 +1,10 @@
 // JavaScript Document
 $(document).bind("mobileinit", function(){
-  //apply overrides here
+    //apply overrides here
       $.mobile.page.prototype.options.addBackBtn = false;
       $.mobile.page.prototype.options.domCache = true;
-      $.mobile.defaultPageTransition = "fade";
+      $.mobile.defaultPageTransition = 'none';
+      $.mobile.defaultDialogTransition = 'none';
+      $.mobile.useFastClick = false;
   
-
 });
-
-	

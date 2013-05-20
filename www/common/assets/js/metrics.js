@@ -1,4 +1,4 @@
-var appData = { "version":"1.0.7", "build":"1", "buildDate":"5/14/2013 ", "stdDataDate":"8/9/2012"};
+var appData = { "version":"1.0.9", "build":"7", "buildDate":"5/20/2013 ", "stdDataDate":"8/9/2012"};
 
 function trackPageView (section, page)
 {
@@ -115,10 +115,10 @@ function trackTermsPageView(page)
 
 }
 
-function trackEulaPageView(page)
+function trackEulaPageView()
 {
 	var section = "EULA";
-	trackPageView (section, page);
+	trackPageView (section, '1');
     
 }
 
@@ -156,3 +156,5 @@ function openPdfLink(newUrl)
     	var ref = window.open(newUrl, '_blank', 'location=yes');  
     }
 }
+
+

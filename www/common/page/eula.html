@@ -23,8 +23,8 @@
 </head>
 
 
-<body onload="onLoad()">
-<div data-role="page" id="main_menu" data-theme="c">
+<body>
+<div data-role="page" id="eula" data-theme="c">
    <div data-role="header" data-theme="menu_head" data-position="fixed">
 	 
     <h1>CDC STD Tx Guide</h1>
@@ -176,15 +176,15 @@ to the Application or your possession and/or use of the Application.
       <span class="ui-title" />
 
   </div><!-- /footer -->
-  
+		<script type="text/javascript">
+                $('#eula').on('pageshow', function (event, ui) {
+                    document.addEventListener("deviceready", function(){
+		            trackEulaPageView();
+                    },true);
+                });
+		</script>
 </div>
     <script type="text/javascript">
-        function onLoad() {
-            document.addEventListener("deviceready", onDeviceReady, false);
-        }
-        function onDeviceReady() {
-            trackEulaPageView();
-        }
         function onClick() {
             history.back();
             //e.preventDefault();

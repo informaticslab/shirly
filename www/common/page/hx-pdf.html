@@ -26,11 +26,11 @@
 <script src="../assets/js/metrics.js" type="text/javascript" charset="utf-8"></script>
    
 </head>
-<body onload="onLoad()">
+<body>
 <div data-role="page" id="PDF" data-theme="d">
   
   	<div data-role="header" data-theme="i" data-position="fixed">
-	<a href="../menu.html" rel="external" data-role="button" data-theme="reset" data-iconshadow="false" data-corners="false" class="menu_button ui-btn-right"></a>
+	<a href="../menu.html" data-role="button" data-theme="reset" data-iconshadow="false" data-corners="false" class="menu_button ui-btn-right"></a>
     <h1>Taking a Sexual Hx PDF</h1>
   </div>
  
@@ -39,21 +39,16 @@
        
        <div class="pdf_text"> <a href="http://www.cdc.gov/std/treatment/SexualHistory.pdf" href="external" target="_blank" onclick="openLink('http://www.cdc.gov/std/treatment/SexualHistory.pdf');">View PDF</a><br/>
  <span style="font-size:15px; position:relative; top:5px;"><strong>A Guide to Taking a Sexual History</strong></span>
-       </div>
+		</div>
+		<script type="text/javascript">
+                $('#PDF').on('pageshow', function (event, ui) {
+                    document.addEventListener("deviceready", function(){
+		            trackHistoryPdfPageView();
+                    },true);
+                });
+		</script>
  </div>
 </div><!--end content-->
 </div> <!--end page-->
-<script type="text/javascript">
-        
-        function onLoad() {
-            document.addEventListener("deviceready", onDeviceReady, false);
-        }
-        
-        // Cordova is loaded and it is now safe to make calls Cordova methods
-        function onDeviceReady() {
-            // Now safe to use the Cordova API
-            trackHistoryPdfPageView();
-        }
-        </script>    
 </body>
 </html>

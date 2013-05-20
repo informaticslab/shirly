@@ -162,7 +162,7 @@ def write_terms_page_body_start(f, headingId):
     #f.write('''" data-role="button" data-iconshadow="false" data-corners="false" data-theme="reset" data-transition="fade" class="back_button" role="button" aria-label="back"></a>''')
     f.write('''
                 <h1>Terms and Abbreviations</h1>
-	            <a href="../menu.html"  rel="external" data-role="button" data-theme="reset" data-transition="fade" data-iconshadow="false" data-corners="false" class="menu_button ui-btn-right" role="button" aria-label="main menu"></a>''')
+	            <a href="../menu.html" data-role="button" data-theme="reset" data-transition="fade" data-iconshadow="false" data-corners="false" class="menu_button ui-btn-right" role="button" aria-label="main menu"></a>''')
     #print headingsStore[headingId]
 
     f.write('''
@@ -431,7 +431,7 @@ def write_children_listview_body(f, headingId):
         f.write('''" data-role="button" data-theme="reset" data-iconshadow="false" data-transition="fade" data-corners="false" class="back_button" role="button" aria-label="back"></a>''')
     f.write('''
                 <h1>Terms and Abbreviations</h1>
-	            <a href="../menu.html" rel="external" data-role="button" data-theme="reset" data-iconshadow="false" data-corners="false" data-transition="fade" class="menu_button ui-btn-right" role="button" aria-label="main menu"></a>
+	            <a href="../menu.html" data-role="button" data-theme="reset" data-iconshadow="false" data-corners="false" data-transition="fade" class="menu_button ui-btn-right" role="button" aria-label="main menu"></a>
             </div>  <!-- end of header div -->
     ''')
 

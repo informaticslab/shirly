@@ -39,10 +39,6 @@ padding:12px; border: 1px solid #cdd5d7; -moz-border-radius: 4px;
 	
 	}
 
-.regimen_text {font-family:Arial, Helvetica, sans-serif; font-size:15px;  }
-
-#regimen_header {color: #8f1636; font-family:Arial, Helvetica, sans-serif; font-size:16px; font-weight:bold;}
-
 hr {border:none; text-align:left; color:#d2d8db; background-color:#d2d8db; height:1px; }	
 	
 #or {font-family:Arial, Helvetica, sans-serif; font-size:14px; padding:10px; }	

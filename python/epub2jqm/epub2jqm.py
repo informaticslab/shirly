@@ -167,7 +167,7 @@ def write_guidelines_listview_breadcrumbs(html_file, headingId):
 def write_guidelines_page_body_start(f, headingId):
     global headingsStore
     f.write('''
-    <body onload="onLoad()">
+    <body>
         <!-- Start of page -->
         <div data-role="page" id="''')
 
@@ -181,7 +181,8 @@ def write_guidelines_page_body_start(f, headingId):
     f.write('''" data-role="button" data-iconshadow="false" data-corners="false" data-theme="reset" data-transition="fade" class="back_button" role="button" aria-label="back"></a>''')
     f.write('''
                 <h1>Full STD Tx Guidelines</h1>
-	            <a href="../menu.html"  rel="external" data-role="button" data-theme="reset" data-transition="fade" data-iconshadow="false" data-corners="false" class="menu_button ui-btn-right" role="button" aria-label="main menu"></a>''')
+	            <a href="../menu.html" data-role="button" data-theme="reset" data-iconshadow="false" data-corners="false" class="menu_button ui-btn-right" role="button" aria-label="main menu"></a>''')
+
     #print headingsStore[headingId]
 
     f.write('''
@@ -470,7 +471,7 @@ def write_children_listview_body(f, headingId):
         f.write('''" data-role="button" data-theme="reset" data-iconshadow="false" data-transition="fade" data-corners="false" class="back_button" role="button" aria-label="back"></a>''')
     f.write('''
                 <h1>Full STD Tx Guidelines</h1>
-	            <a href="../menu.html" rel="external" data-role="button" data-theme="reset" data-iconshadow="false" data-corners="false" data-transition="fade" class="menu_button ui-btn-right" role="button" aria-label="main menu"></a>
+	            <a href="../menu.html" data-role="button" data-theme="reset" data-iconshadow="false" data-corners="false" class="menu_button ui-btn-right" role="button" aria-label="main menu"></a>
             </div>  <!-- end of header div -->
     ''')
 
@@ -502,7 +503,7 @@ def write_children_listview_body(f, headingId):
         f.write('''
                     <li data-icon="thin-arrow"><a href="''')
         f.write(childLink)
-        f.write('''" data-transition="fade" ><div style="white-space:normal;">''')
+        f.write('''"><div style="white-space:normal;">''')
         f.write(title)
         f.write('''</div></a></li>''')
 
@@ -1073,7 +1074,7 @@ class Condition():
 
         html_file.write('''
                 <h1>Condition Quick Pick</h1>
-                <a href="../menu.html" rel="external" data-role="button" data-theme="reset" data-iconshadow="false" data-corners="false" class="menu_button ui-btn-right" role="button" aria-label="main menu"></a>
+                <a href="../menu.html" data-role="button" data-theme="reset" data-iconshadow="false" data-corners="false" class="menu_button ui-btn-right" role="button" aria-label="main menu"></a>
             </div>''')
 
 
@@ -1148,13 +1149,13 @@ class Condition():
             <div data-role="footer" data-id="regimens-footer" data-position="fixed" class="tab_treatment">
                 <div data-role="navbar" class="tab_icons" data-iconpos="left">
                     <ul>
-                        <li><a href="#" id="treat_active" class="ui-btn-active ui-state-persist" data-icon="custom">Treatments</a></li>
+                        <li><a href="#" id="treat_active" data-theme="b" class="ui-btn-active ui-state-persist" data-icon="custom">Treatments</a></li>
                         <li><a href="''')
         if self.hasDxTx:
             html_file.write(self.dxtxPage + '"')
         else:
             html_file.write('#" class="ui-disabled"')
-        html_file.write(''' id="info_active" data-icon="custom">More Info</a></li>
+        html_file.write(''' id="info_inactive" data-theme="a" data-icon="custom">More Info</a></li>
                     </ul>
                 </div>
             </div>
@@ -1192,8 +1193,8 @@ class Condition():
         else:
             html_file.write('#" class="ui-disabled"')
 
-        html_file.write(''' id="treat_active" data-icon="custom">Treatments</a></li>
-                        <li><a href="#" id="info_active"  class="ui-btn-active ui-state-persist" data-icon="custom">More Info</a></li>
+        html_file.write(''' id="treat_inactive" data-theme="a" data-icon="custom">Treatments</a></li>
+                        <li><a href="#" id="info_active" data-theme="b" class="ui-btn-active ui-state-persist" data-icon="custom">More Info</a></li>
                     </ul>
                 </div>
             </div>

@@ -1,3 +1,5 @@
 #! /bin/sh
-rm -rf common/
+if [ -d common ]; then
+	rm -rf common
+fi
 cp -r ~/informaticslab/shirly/www/common common

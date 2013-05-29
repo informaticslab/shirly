@@ -18,8 +18,8 @@
 			<array>
 				<string>icon.png</string>
 				<string>icon@2x.png</string>
-				<string>Icon-Small</string>
-				<string>Icon-Small@2x</string>
+				<string>Icon-Small.png</string>
+				<string>Icon-Small@2x.png</string>
 			</array>
 			<key>UIPrerenderedIcon</key>
 			<false/>

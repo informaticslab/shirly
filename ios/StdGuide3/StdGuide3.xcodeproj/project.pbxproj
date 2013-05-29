@@ -41,6 +41,8 @@
 		A62EB2851739CAFB00B2B7B8 /* www in Resources */ = {isa = PBXBuildFile; fileRef = A62EB2841739CAFB00B2B7B8 /* www */; };
 		A62EB2881739CDD300B2B7B8 /* config.xml in Resources */ = {isa = PBXBuildFile; fileRef = A62EB2871739CDD300B2B7B8 /* config.xml */; };
 		A66D911817389999006744CA /* libCordova.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A66D91151738954D006744CA /* libCordova.a */; };
+		A6B07BDB175651B800DDFDD4 /* Icon-Small.png in Resources */ = {isa = PBXBuildFile; fileRef = A6B07BD9175651B800DDFDD4 /* Icon-Small.png */; };
+		A6B07BDC175651B800DDFDD4 /* Icon-Small@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A6B07BDA175651B800DDFDD4 /* Icon-Small@2x.png */; };
 		A6B08EC817440C240074C5D9 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A6B08EC717440C240074C5D9 /* Default-568h@2x.png */; };
 		A6C30C7B16C5C8730004485C /* iTunesArtwork in Resources */ = {isa = PBXBuildFile; fileRef = A6C30C7A16C5C8730004485C /* iTunesArtwork */; };
 		A6F206AC1729AE7E002CFBF9 /* AssetsLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A6F206AB1729AE7E002CFBF9 /* AssetsLibrary.framework */; };
@@ -97,6 +99,8 @@
 		A62EB2841739CAFB00B2B7B8 /* www */ = {isa = PBXFileReference; lastKnownFileType = folder; path = www; sourceTree = "<group>"; };
 		A62EB2871739CDD300B2B7B8 /* config.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = config.xml; path = StdGuide3/config.xml; sourceTree = "<group>"; };
 		A66D91101738954D006744CA /* CordovaLib.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = CordovaLib.xcodeproj; path = CordovaLib/CordovaLib.xcodeproj; sourceTree = "<group>"; };
+		A6B07BD9175651B800DDFDD4 /* Icon-Small.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-Small.png"; sourceTree = "<group>"; };
+		A6B07BDA175651B800DDFDD4 /* Icon-Small@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-Small@2x.png"; sourceTree = "<group>"; };
 		A6B08EC717440C240074C5D9 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		A6C30C7A16C5C8730004485C /* iTunesArtwork */ = {isa = PBXFileReference; lastKnownFileType = file; path = iTunesArtwork; sourceTree = "<group>"; };
 		A6F206AB1729AE7E002CFBF9 /* AssetsLibrary.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AssetsLibrary.framework; path = System/Library/Frameworks/AssetsLibrary.framework; sourceTree = SDKROOT; };
@@ -243,6 +247,8 @@
 		308D052D1370CCF300D202BF /* icons */ = {
 			isa = PBXGroup;
 			children = (
+				A6B07BD9175651B800DDFDD4 /* Icon-Small.png */,
+				A6B07BDA175651B800DDFDD4 /* Icon-Small@2x.png */,
 				A6C30C7A16C5C8730004485C /* iTunesArtwork */,
 				308D052F1370CCF300D202BF /* icon.png */,
 				308D05301370CCF300D202BF /* icon@2x.png */,
@@ -378,6 +384,8 @@
 				A62EB2851739CAFB00B2B7B8 /* www in Resources */,
 				A62EB2881739CDD300B2B7B8 /* config.xml in Resources */,
 				A6B08EC817440C240074C5D9 /* Default-568h@2x.png in Resources */,
+				A6B07BDB175651B800DDFDD4 /* Icon-Small.png in Resources */,
+				A6B07BDC175651B800DDFDD4 /* Icon-Small@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

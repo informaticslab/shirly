@@ -1,9 +1,10 @@
-package gov.cdc.stdguide;
+package gov.cdc.oid.nchhstp.stdguide;
 
 import android.os.Bundle;
 import android.view.Menu;
 import org.apache.cordova.*;
-import gov.cdc.stdguide.R;
+
+import gov.cdc.oid.nchhstp.stdguide.R;
 
 public class StdTxGuide extends DroidGap {
 

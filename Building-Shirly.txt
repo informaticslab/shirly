@@ -1,0 +1,30 @@
+Getting the Source Code
+-----------------------
+
+The source code for STD Tx Guide for iOS and Android can be found at on GitHub at 
+https://github.com/informaticslab/shirly. Shirly is the project name for the STD Tx Guide. 
+
+
+Building Shirly for iOS
+-----------------------
+
+Requirements: Apple computer with OS X 10.8.3, Xcode 4.6
+
+1. Clone the GitHub repo into a folder on an Apple computer. 
+2. Go into the "shirly" directory.
+3. Run the update-www.sh shell script. This copies the web content into both the ios and 
+   android sub-directories. 
+4. Double click on the shirly/ios/StdGuide/StdGuide3.xcodeproj file to open the Shirly
+   project in Xcode to build and run.
+   
+Building Shirly for Android
+---------------------------
+
+Requirements: Computer with Eclipse, Android SDK, ADT Plugin 
+
+1. Clone the GitHub repo into a folder on the computer. 
+2. Go into the "shirly" directory.
+3. Run the update-www.sh shell script. This copies the web content into both the ios and 
+   android sub-directories. 
+4. Start Eclipse and Import Existing project from shirly/android directory. 
+5. Select Build or Debug from Project menu.

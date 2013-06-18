@@ -1,6 +1,6 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="gov.cdc.oid.nchhstp.stdguide"
-    android:versionCode="2"
+    android:versionCode="3"
     android:versionName="1.0.9.21" >
 
     <uses-sdk

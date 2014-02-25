@@ -20,7 +20,7 @@ To develop and share a useful app to save and use the CDC STD Guidelines on Andr
 * Cordova 2.7.0
 
 ## Roadmap
-* Active development, 3 week iterations
+* Inactive, Planned update for 2014, not begun
 
 ## Contributing
 Anyone is encouraged to contribute to the project by [forking](https://help.github.com/articles/fork-a-repo) and submitting a pull request. (If you are new to GitHub, you might start with a [basic tutorial](https://help.github.com/articles/set-up-git).) 
